@@ -10,9 +10,6 @@
     <!-- Vazirmatn Persian Font -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -41,13 +38,11 @@
         </div>
     </header>
 
-    <!-- Main Swiper Container -->
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
+    <!-- Page Sections -->
+    <main class="site-sections">
             
-            <!-- Slide 1: Hero & Profile -->
-            <div class="swiper-slide">
-                <div class="slide-scroll p-6 pt-20">
+            <!-- Section 1: Hero & Profile -->
+            <section id="hero" class="page-section p-6 pt-20">
                 <div class="max-w-5xl w-full space-y-6">
                     
                     <div class="text-center">
@@ -111,12 +106,10 @@
                     </div>
 
                 </div>
-                </div><!-- /.slide-scroll -->
-            </div>
+                </section>
 
-            <!-- Slide 2: Interactive Testing Grid -->
-            <div class="swiper-slide">
-                <div class="slide-scroll p-6 pt-20">
+            <!-- Section 2: Interactive Testing Grid -->
+            <section id="procedures" class="page-section p-6 pt-20">
                 <div class="max-w-5xl w-full">
                     
                     <div id="tests-grid-view" class="space-y-4">
@@ -229,12 +222,10 @@
                     </div>
 
                 </div>
-                </div><!-- /.slide-scroll -->
-            </div>
+                </section>
 
-            <!-- Slide 3: Engineering Instruments Showcase -->
-            <div class="swiper-slide">
-                <div class="slide-scroll p-6 pt-20">
+            <!-- Section 3: Engineering Instruments Showcase -->
+            <section id="instruments" class="page-section p-6 pt-20">
                 <div class="max-w-5xl w-full space-y-4">
                     <div class="text-center space-y-1">
                         <h2 class="text-2xl md:text-3xl font-bold text-white">تجهیزات و ابزارهای تخصصی من</h2>
@@ -328,12 +319,10 @@
 
                     </div>
                 </div>
-                </div><!-- /.slide-scroll -->
-            </div>
+                </section>
 
-            <!-- Slide 4: Downloads & Standards -->
-            <div class="swiper-slide">
-                <div class="slide-scroll p-6 pt-20">
+            <!-- Section 4: Downloads & Standards -->
+            <section id="standards" class="page-section p-6 pt-20">
                 <div class="max-w-4xl w-full text-center space-y-6">
                     <div class="space-y-2">
                         <h2 class="text-2xl md:text-3xl font-bold text-white">بانک استانداردهای تست و تحویل</h2>
@@ -396,12 +385,10 @@
                         </a>
                     </div>
                 </div>
-                </div><!-- /.slide-scroll -->
-            </div>
+                </section>
 
-            <!-- Slide 5: Contact Me -->
-            <div class="swiper-slide">
-                <div class="slide-scroll p-6 pt-20">
+            <!-- Section 5: Contact Me -->
+            <section id="contact" class="page-section p-6 pt-20">
                 <div class="max-w-4xl w-full text-center flex flex-col gap-6 min-h-full py-4">
                     <div class="space-y-2">
                         <span class="px-3 py-1 rounded-full bg-amber-hazard/10 text-amber-hazard text-sm font-bold border border-amber-hazard/30">
@@ -460,18 +447,14 @@
                         </div>
                     </div>
                 </div>
-                </div><!-- /.slide-scroll -->
-            </div>
+                </section>
 
-        </div>
-        
-        <!-- Swiper Pagination Bullets -->
-        <div class="swiper-pagination"></div>
-    </div>
+    </main>
 
-    <!-- Swiper JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- External Logic Script -->
+    <!-- Section Navigation Dots -->
+    <nav id="section-pagination" class="section-pagination" aria-label="بخش‌های صفحه"></nav>
+
+    <!-- Page Logic Script -->
     <script src="script.js"></script>
 </body>
 </html>

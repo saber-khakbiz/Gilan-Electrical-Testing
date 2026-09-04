@@ -20,34 +20,65 @@ tailwind.config = {
     }
 };
 
-// Initialize Swiper Instance
-// Update Swiper Initialization
-var swiper = new Swiper(".mySwiper", {
-    direction: "vertical",
-    slidesPerView: 1,
-    spaceBetween: 0,
-    mousewheel: true,
-    // Let a vertical touch-drag scroll .slide-scroll content first;
-    // only change slide once that inner scroll hits its top/bottom edge.
-    touchReleaseOnEdges: true,
-    nested: true,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        renderBullet: function (index, className) {
-            var menuNames = ["Resume", "Procedures", "Instruments", "Standards", "Contact"];
-            return '<span class="' + className + '" data-hover="' + menuNames[index] + '"></span>';
-        }
-    },
-    keyboard: {
-        enabled: true,
-    },
-});
+// Section Navigation (replaces Swiper)
+// Order matches the original slide order: Resume, Procedures, Instruments, Standards, Contact
+const sectionIds = ["hero", "procedures", "instruments", "standards", "contact"];
+const sectionLabels = ["Resume", "Procedures", "Instruments", "Standards", "Contact"];
 
-// Jump to Specific Slide via Navigation Menu
+// Jump to Specific Section via Navigation Menu (same name/signature as before,
+// so the header's onclick="goToSlide(N)" buttons keep working unchanged)
 function goToSlide(index) {
-    swiper.slideTo(index);
+    const target = document.getElementById(sectionIds[index]);
+    if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
 }
+
+// Build the pagination dots once the page is ready
+function buildSectionPagination() {
+    const nav = document.getElementById("section-pagination");
+    if (!nav) return;
+
+    sectionIds.forEach((id, index) => {
+        const bullet = document.createElement("button");
+        bullet.type = "button";
+        bullet.className = "section-pagination-bullet";
+        bullet.setAttribute("data-hover", sectionLabels[index]);
+        bullet.setAttribute("aria-label", sectionLabels[index]);
+        bullet.addEventListener("click", () => goToSlide(index));
+        nav.appendChild(bullet);
+    });
+}
+
+// Highlight the pagination dot matching whichever section is in view.
+// This replaces Swiper's automatic active-bullet behavior.
+function initSectionScrollSpy() {
+    const bullets = document.querySelectorAll(".section-pagination-bullet");
+    if (!bullets.length) return;
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const idx = sectionIds.indexOf(entry.target.id);
+                    if (idx === -1) return;
+                    bullets.forEach((b, i) => {
+                        b.classList.toggle("active", i === idx);
+                    });
+                }
+            });
+        },
+        { threshold: 0.5 }
+    );
+
+    sectionIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+    });
+}
+
+buildSectionPagination();
+initSectionScrollSpy();
 
 // Test Procedures Database
 const testsData = {
