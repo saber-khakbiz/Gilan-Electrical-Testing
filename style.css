@@ -1,0 +1,87 @@
+/* Design Variables Setup for Global Customization */
+:root {
+    /* Color Palette Configuration */
+    --color-navy-base: #0a1128;
+    --color-navy-card: #101f42;
+    --color-navy-border: #1c2d5a;
+    --color-amber-hazard: #f59e0b;
+    --color-amber-glow: #fbbf24;
+    --color-text-primary: #f8fafc;
+
+    /* Base Font Family */
+    --font-family-base: 'Vazirmatn', sans-serif;
+}
+
+/* Global Reset & Container Height */
+html, body { 
+    position: relative; 
+    height: 100%; 
+    margin: 0; 
+    padding: 0; 
+    background-color: var(--color-navy-base); 
+    color: var(--color-text-primary); 
+    font-family: var(--font-family-base);
+}
+
+/* Swiper Full Screen Alignment */
+.swiper { 
+    width: 100%; 
+    height: 100%; 
+}
+
+.swiper-slide { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    overflow-y: auto;
+}
+
+/* Custom Navigation Bullets Styling */
+.swiper-pagination-bullet {
+    background: var(--color-navy-border) !important;
+    opacity: 1 !important;
+    width: 10px !important;
+    height: 10px !important;
+    transition: all 0.3s ease !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--color-amber-hazard) !important;
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
+    height: 24px !important;
+    border-radius: 8px !important;
+}
+
+/* Mobile Responsiveness Adjustments */
+@media (max-width: 640px) {
+    .swiper-slide {
+        padding-top: 5rem;
+        padding-bottom: 2rem;
+    }
+}
+
+/* Hover Effects for Navigation Bullets */
+.swiper-pagination-bullet {
+    position: relative !important;
+}
+.swiper-pagination-bullet::after {
+    content: attr(data-hover);
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--color-navy-card);
+    color: var(--color-text-primary);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    border: 1px solid var(--color-amber-hazard);
+    font-family: var(--font-family-base);
+}
+.swiper-pagination-bullet:hover::after {
+    opacity: 1;
+}
