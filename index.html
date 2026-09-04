@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Electrical testing and delivery in Gilan, Rasht, and Lahijan." />
     <meta name="keywords" content="Electrical testing, Gilan, Rasht, Lahijan, SCADA" />
-    <title> تست و تحویل تاسیسات برقی </title>
+    <title>تست و تحویل تاسیسات برقی</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png" />
     
     <!-- Vazirmatn Persian Font -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
@@ -22,6 +25,8 @@
     <header class="fixed top-0 left-0 right-0 z-50 bg-navy-base/90 backdrop-blur-md border-b border-navy-border px-4 py-3">
         <div class="max-w-6xl mx-auto flex items-center justify-between">
             <div class="flex items-center gap-3">
+                <!-- Site Logo -->
+                <img src="images/logo.png" alt="لوگوی سایت" onerror="this.onerror=null; this.src='https://via.placeholder.com/80/101f42/f59e0b?text=Logo';" class="w-14 h-14 md:w-14 md:h-14 rounded-lg object-contain bg-navy-card/60 border border-navy-border p-1">
                 <span class="w-3 h-3 rounded-full bg-amber-hazard animate-pulse"></span>
                 <div>
                     <span class="font-bold text-white text-base md:text-lg block">صابر خاک‌بیز</span>
@@ -55,7 +60,7 @@
                     <div class="flex flex-col md:flex-row items-center justify-center gap-6 text-center md:text-right">
                         <div class="relative group flex-shrink-0">
                             <div class="absolute -inset-0.5 bg-gradient-to-r from-amber-hazard to-amber-glow rounded-full blur opacity-50 group-hover:opacity-100 transition duration-300"></div>
-                            <img src="profile.png" alt="صابر خاک‌بیز" onerror="this.onerror=null; this.src='https://via.placeholder.com/160/101f42/f59e0b?text=Saber+Khakbiz';" class="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-2 border-amber-hazard bg-navy-card shadow-2xl">
+                            <img src="images/profile.png" alt="صابر خاک‌بیز" onerror="this.onerror=null; this.src='https://via.placeholder.com/160/101f42/f59e0b?text=Saber+Khakbiz';" class="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-2 border-amber-hazard bg-navy-card shadow-2xl">
                         </div>
 
                         <div class="space-y-2 max-w-2xl">
@@ -106,7 +111,7 @@
                     </div>
 
                 </div>
-                </section>
+            </section>
 
             <!-- Section 2: Interactive Testing Grid -->
             <section id="procedures" class="page-section p-6 pt-20">
@@ -117,6 +122,7 @@
                             <h2 class="text-2xl md:text-3xl font-bold text-white">دستورالعمل‌ها و فرآیندهای تست</h2>
                             <p class="text-gray-400 text-sm md:text-sm">روی هر یک از کارت‌ها کلیک کنید تا متدولوژی و الزامات تست مشخص شود</p>
                         </div>
+                        
                         <!-- Necessity of Testing Notice Box -->
                         <div class="bg-navy-base/60 border-r-2 border-amber-hazard p-4 rounded-xl text-right shadow-inner mb-2">
                             <h3 class="text-amber-hazard font-bold text-sm mb-1.5 flex items-center gap-2">
@@ -187,6 +193,7 @@
                         </div>
                     </div>
 
+                    <!-- Test Details View -->
                     <div id="test-detail-view" class="hidden bg-navy-card border border-navy-border rounded-2xl p-5 md:p-6 space-y-4 shadow-2xl">
                         <div class="flex items-center justify-between border-b border-navy-border pb-3">
                             <button onclick="closeTestDetail()" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-navy-base text-amber-hazard border border-amber-hazard/40 hover:bg-amber-hazard hover:text-navy-base transition font-semibold text-sm">
@@ -222,7 +229,7 @@
                     </div>
 
                 </div>
-                </section>
+            </section>
 
             <!-- Section 3: Engineering Instruments Showcase -->
             <section id="instruments" class="page-section p-6 pt-20">
@@ -233,13 +240,14 @@
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                        
                         <div class="bg-navy-card p-4 rounded-xl border border-navy-border hover:border-amber-hazard transition shadow-lg flex flex-col justify-between space-y-3">
                             <div class="flex items-center justify-between border-b border-navy-border pb-2">
                                 <h3 class="font-bold text-white text-sm">Chauvin Arnoux C.A 6117</h3>
                                 <span class="px-2 py-0.5 rounded bg-amber-hazard/10 text-amber-hazard text-[10px] font-bold">Multifunction</span>
                             </div>
                             <div class="w-full h-28 bg-navy-base/60 rounded-lg border border-navy-border/60 p-2 flex items-center justify-center overflow-hidden">
-                                <img src="ca6117.png" alt="Chauvin Arnoux CA 6117" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x100/101f42/f59e0b?text=CA+6117+PNG';" class="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">
+                                <img src="images/ca6117.png" alt="Chauvin Arnoux CA 6117" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x100/101f42/f59e0b?text=CA+6117+PNG';" class="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">
                             </div>
                             <p class="text-sm text-gray-300 leading-relaxed">
                                 تستر چندمنظوره پیشرفته ساخت فرانسه جهت تست کامل RCD (نوع B/B+)، مقاومت عایقی، امپدانس لوپ، ارت و هارمونیک.
@@ -253,7 +261,7 @@
                                 <span class="px-2 py-0.5 rounded bg-amber-hazard/10 text-amber-hazard text-[10px] font-bold">Loop / RCD</span>
                             </div>
                             <div class="w-full h-28 bg-navy-base/60 rounded-lg border border-navy-border/60 p-2 flex items-center justify-center overflow-hidden">
-                                <img src="habotest.png" alt="Habotest Loop Tester" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x100/101f42/f59e0b?text=Habotest+PNG';" class="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">
+                                <img src="images/habotest.png" alt="Habotest Loop Tester" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x100/101f42/f59e0b?text=Habotest+PNG';" class="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">
                             </div>
                             <p class="text-sm text-gray-300 leading-relaxed">
                                 دستگاه تستر امپدانس حلقه (Loop Impedance) و کلیدهای محافظ جان جهت ارزیابی سریع جریان خطای اتصال کوتاه.
@@ -267,7 +275,7 @@
                                 <span class="px-2 py-0.5 rounded bg-amber-hazard/10 text-amber-hazard text-[10px] font-bold">Earth & Megger</span>
                             </div>
                             <div class="w-full h-28 bg-navy-base/60 rounded-lg border border-navy-border/60 p-2 flex items-center justify-center overflow-hidden">
-                                <img src="mastech.png" alt="Mastech Insulation & Earth Tester" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x100/101f42/f59e0b?text=Mastech+PNG';" class="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">
+                                <img src="images/mastech.png" alt="Mastech Insulation & Earth Tester" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x100/101f42/f59e0b?text=Mastech+PNG';" class="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">
                             </div>
                             <p class="text-sm text-gray-300 leading-relaxed">
                                 دستگاه‌های اندازه‌گیری مقاومت عایقی کابل‌ها (مگر) و ارت‌سنج‌های دیجیتال مستک برای بررسی مقاومت چاه ارت.
@@ -281,7 +289,7 @@
                                 <span class="px-2 py-0.5 rounded bg-amber-hazard/10 text-amber-hazard text-[10px] font-bold">TRMS Meter</span>
                             </div>
                             <div class="w-full h-28 bg-navy-base/60 rounded-lg border border-navy-border/60 p-2 flex items-center justify-center overflow-hidden">
-                                <img src="unit.png" alt="UNI-T Clamp Meter" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x100/101f42/f59e0b?text=UNI-T+PNG';" class="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">
+                                <img src="images/unit.png" alt="UNI-T Clamp Meter" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x100/101f42/f59e0b?text=UNI-T+PNG';" class="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">
                             </div>
                             <p class="text-sm text-gray-300 leading-relaxed">
                                 کلمپ آمپرمترهای True RMS یونتی، مولتی‌مترهای صنعتی و تجهیزات سنجش توالی فاز جهت اندازه‌گیری دقیق جریان.
@@ -295,7 +303,7 @@
                                 <span class="px-2 py-0.5 rounded bg-amber-hazard/10 text-amber-hazard text-[10px] font-bold">Industrial Testing</span>
                             </div>
                             <div class="w-full h-28 bg-navy-base/60 rounded-lg border border-navy-border/60 p-2 flex items-center justify-center overflow-hidden">
-                                <img src="kyoritsu.png" alt="Kyoritsu Tester" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x100/101f42/f59e0b?text=Kyoritsu+PNG';" class="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">
+                                <img src="images/kyoritsu.png" alt="Kyoritsu Tester" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x100/101f42/f59e0b?text=Kyoritsu+PNG';" class="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">
                             </div>
                             <p class="text-sm text-gray-300 leading-relaxed">
                                 ابزارهای مکمل اندازه‌گیری کیوریتسو جهت صحه‌گذاری روی تست‌های لوپ، پیوستگی هادی حفاظتی و ایزولاسیون.
@@ -309,7 +317,7 @@
                                 <span class="px-2 py-0.5 rounded bg-amber-hazard/10 text-amber-hazard text-[10px] font-bold">Telemetry & Cyber</span>
                             </div>
                             <div class="w-full h-28 bg-navy-base/60 rounded-lg border border-navy-border/60 p-2 flex items-center justify-center overflow-hidden">
-                                <img src="scada-tester.png" alt="SCADA Network Tester" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x100/101f42/f59e0b?text=SCADA+Tools+PNG';" class="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">
+                                <img src="images/scada-tester.png" alt="SCADA Network Tester" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x100/101f42/f59e0b?text=SCADA+Tools+PNG';" class="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">
                             </div>
                             <p class="text-sm text-gray-300 leading-relaxed">
                                 تستر کابل‌های شبکه، آنالیزورهای پروتکل صنعتی (IEC 104/Modbus) و ابزارهای مانیتورینگ فایروال.
@@ -319,7 +327,7 @@
 
                     </div>
                 </div>
-                </section>
+            </section>
 
             <!-- Section 4: Downloads & Standards -->
             <section id="standards" class="page-section p-6 pt-20">
@@ -332,7 +340,7 @@
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-3xl mx-auto">
-                        <a href="#" class="p-4 bg-navy-card border border-navy-border rounded-xl hover:border-amber-hazard transition flex items-center justify-between group">
+                        <a href="documents/iec_60364.pdf" download class="p-4 bg-navy-card border border-navy-border rounded-xl hover:border-amber-hazard transition flex items-center justify-between group">
                             <div class="flex items-center gap-3">
                                 <div class="p-2.5 rounded-lg bg-amber-hazard/10 text-amber-hazard group-hover:bg-amber-hazard group-hover:text-navy-base transition">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
@@ -345,7 +353,7 @@
                             <span class="text-sm text-amber-hazard font-bold">دانلود PDF</span>
                         </a>
 
-                        <a href="#" class="p-4 bg-navy-card border border-navy-border rounded-xl hover:border-amber-hazard transition flex items-center justify-between group">
+                        <a href="documents/substation_guidelines.pdf" download class="p-4 bg-navy-card border border-navy-border rounded-xl hover:border-amber-hazard transition flex items-center justify-between group">
                             <div class="flex items-center gap-3">
                                 <div class="p-2.5 rounded-lg bg-amber-hazard/10 text-amber-hazard group-hover:bg-amber-hazard group-hover:text-navy-base transition">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
@@ -358,7 +366,7 @@
                             <span class="text-sm text-amber-hazard font-bold">دانلود PDF</span>
                         </a>
 
-                        <a href="#" class="p-4 bg-navy-card border border-navy-border rounded-xl hover:border-amber-hazard transition flex items-center justify-between group">
+                        <a href="documents/iec_61850.pdf" download class="p-4 bg-navy-card border border-navy-border rounded-xl hover:border-amber-hazard transition flex items-center justify-between group">
                             <div class="flex items-center gap-3">
                                 <div class="p-2.5 rounded-lg bg-amber-hazard/10 text-amber-hazard group-hover:bg-amber-hazard group-hover:text-navy-base transition">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
@@ -371,7 +379,7 @@
                             <span class="text-sm text-amber-hazard font-bold">دانلود PDF</span>
                         </a>
 
-                        <a href="#" class="p-4 bg-navy-card border border-navy-border rounded-xl hover:border-amber-hazard transition flex items-center justify-between group">
+                        <a href="documents/nezam_mohandesi_checklist.pdf" download class="p-4 bg-navy-card border border-navy-border rounded-xl hover:border-amber-hazard transition flex items-center justify-between group">
                             <div class="flex items-center gap-3">
                                 <div class="p-2.5 rounded-lg bg-amber-hazard/10 text-amber-hazard group-hover:bg-amber-hazard group-hover:text-navy-base transition">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
@@ -385,7 +393,7 @@
                         </a>
                     </div>
                 </div>
-                </section>
+            </section>
 
             <!-- Section 5: Contact Me -->
             <section id="contact" class="page-section p-6 pt-20">
@@ -425,8 +433,12 @@
                             <p class="text-sm text-amber-hazard font-mono">مکاتبات رسمی و فنی</p>
                         </a>
                     </div>
+
+                    <!-- Signature Stamp -->
+                    <div class="flex justify-center pt-2">
+                        <img src="images/stamp.png" alt="مهر" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/101f42/f59e0b?text=Stamp';" class="w-20 h-20 md:w-24 md:h-24 object-contain opacity-90">
+                    </div>
         
-                <!-- Developer Footer with Minimal Icons -->
                     <!-- Developer Footer with Minimal Icons (Left-to-Right layout) -->
                     <div dir="ltr" class="mt-auto pt-6 flex items-center justify-center gap-6 drop-shadow-md">
                         <!-- Developer Info -->
@@ -447,7 +459,7 @@
                         </div>
                     </div>
                 </div>
-                </section>
+            </section>
 
     </main>
 
