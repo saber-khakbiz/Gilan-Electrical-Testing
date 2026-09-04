@@ -20,8 +20,8 @@ tailwind.config = {
     }
 };
 
-
-// Initialize Swiper with responsive breakpoints (Disabled on mobile for smooth scrolling)
+// Initialize Swiper Instance
+// Update Swiper Initialization
 var swiper = new Swiper(".mySwiper", {
     direction: "vertical",
     slidesPerView: 1,
@@ -38,18 +38,12 @@ var swiper = new Swiper(".mySwiper", {
     keyboard: {
         enabled: true,
     },
-    // Disable vertical swiper on mobile devices (< 768px) for native scrolling
-    breakpoints: {
-        320: {
-            enabled: false,
-            direction: "horizontal",
-        },
-        768: {
-            enabled: true,
-            direction: "vertical",
-        }
-    }
 });
+
+// Jump to Specific Slide via Navigation Menu
+function goToSlide(index) {
+    swiper.slideTo(index);
+}
 
 // Test Procedures Database
 const testsData = {

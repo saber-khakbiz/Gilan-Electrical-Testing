@@ -52,19 +52,11 @@ html, body {
     border-radius: 8px !important;
 }
 
-/* Responsive adjustments for mobile view */
-@media (max-width: 768px) {
-    .swiper {
-        height: auto !important;
-    }
+/* Mobile Responsiveness Adjustments */
+@media (max-width: 640px) {
     .swiper-slide {
-        height: auto !important;
-        min-height: 100vh;
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-    }
-    .swiper-pagination {
-        display: none !important; /* Hide bullet navigation on mobile screens */
+        padding-top: 5rem;
+        padding-bottom: 2rem;
     }
 }
 
