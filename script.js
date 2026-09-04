@@ -27,6 +27,10 @@ var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
     spaceBetween: 0,
     mousewheel: true,
+    // Let a vertical touch-drag scroll .slide-scroll content first;
+    // only change slide once that inner scroll hits its top/bottom edge.
+    touchReleaseOnEdges: true,
+    nested: true,
     pagination: {
         el: ".swiper-pagination",
         clickable: true,

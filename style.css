@@ -33,7 +33,21 @@ html, body {
     display: flex; 
     align-items: center; 
     justify-content: center; 
+    overflow: hidden;
+}
+
+/* Inner scroll wrapper: this owns vertical scrolling of a slide's content.
+   Keeping overflow OFF .swiper-slide itself is what lets vertical
+   swipe-to-change-slide keep working on touch devices. */
+.slide-scroll {
+    width: 100%;
+    height: 100%;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Custom Navigation Bullets Styling */
@@ -54,9 +68,10 @@ html, body {
 
 /* Mobile Responsiveness Adjustments */
 @media (max-width: 640px) {
-    .swiper-slide {
+    .slide-scroll {
         padding-top: 5rem;
         padding-bottom: 2rem;
+        align-items: flex-start; /* let tall content start at top instead of being vertically centered/clipped */
     }
 }
 
