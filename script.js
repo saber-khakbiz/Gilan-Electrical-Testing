@@ -21,9 +21,9 @@ tailwind.config = {
 };
 
 // Section Navigation (replaces Swiper)
-// Order matches the original slide order: Resume, Procedures, Instruments, Standards, Contact
-const sectionIds = ["hero", "procedures", "instruments", "standards", "contact"];
-const sectionLabels = ["Resume", "Procedures", "Instruments", "Standards", "Contact"];
+// Order matches the section order: Resume, Procedures, Instruments, Standards, Portfolio, Contact
+const sectionIds = ["hero", "procedures", "instruments", "standards", "portfolio", "contact"];
+const sectionLabels = ["Resume", "Procedures", "Instruments", "Standards", "Portfolio", "Contact"];
 
 // Jump to Specific Section via Navigation Menu (same name/signature as before,
 // so the header's onclick="goToSlide(N)" buttons keep working unchanged)
@@ -32,6 +32,43 @@ function goToSlide(index) {
     if (target) {
         target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+    closeMobileMenuIfOpen();
+}
+
+// Mobile Menu Toggle
+// The desktop nav (in the header) is hidden below the 'md' breakpoint, so
+// this hamburger + panel is the only labeled navigation on mobile —
+// pagination dots alone aren't a substitute since they carry no visible
+// text label on touch devices (their tooltip only shows on :hover).
+function toggleMobileMenu() {
+    const menu = document.getElementById("mobile-menu");
+    const toggleBtn = document.getElementById("mobile-menu-toggle");
+    const iconOpen = document.getElementById("mobile-menu-icon-open");
+    const iconClose = document.getElementById("mobile-menu-icon-close");
+    if (!menu || !toggleBtn || !iconOpen || !iconClose) return;
+
+    const isHidden = menu.classList.contains("hidden");
+    menu.classList.toggle("hidden", !isHidden);
+    iconOpen.classList.toggle("hidden", isHidden);
+    iconClose.classList.toggle("hidden", !isHidden);
+    toggleBtn.setAttribute("aria-expanded", isHidden ? "true" : "false");
+}
+
+// Closes the mobile menu unconditionally if it happens to be open — used
+// after any navigation (e.g. clicking a pagination dot) so a stale open
+// menu never lingers over the newly-scrolled-to section. Does nothing if
+// the menu is already closed (unlike toggleMobileMenu, which would open it).
+function closeMobileMenuIfOpen() {
+    const menu = document.getElementById("mobile-menu");
+    const toggleBtn = document.getElementById("mobile-menu-toggle");
+    const iconOpen = document.getElementById("mobile-menu-icon-open");
+    const iconClose = document.getElementById("mobile-menu-icon-close");
+    if (!menu || menu.classList.contains("hidden")) return;
+
+    menu.classList.add("hidden");
+    if (iconOpen) iconOpen.classList.remove("hidden");
+    if (iconClose) iconClose.classList.add("hidden");
+    if (toggleBtn) toggleBtn.setAttribute("aria-expanded", "false");
 }
 
 // Build the pagination dots once the page is ready
@@ -84,6 +121,7 @@ initSectionScrollSpy();
 const testsData = {
     continuity: {
         title: "تست پیوستگی هادی‌های حفاظتی (Continuity Test)",
+        standard: "IEC 60364-6",
         overview: "این تست برای اطمینان از اتصال کامل، بدون قطعی و کم‌مقاومت تمامی هادی‌های حفاظتی (PE)، هادی‌های هم‌پتانسیل‌سازی اصلی و فرعی به زمین اجرا می‌شود.",
         instrument: "دستگاه تستر چندمنظوره یا Low-Ohm Meter با جریان حداقل 200mA",
         limit: "مقاومت هادی حفاظتی باید کمتر از 1 اهم (معمولاً کمتر از 0.2 اهم در طول‌های کوتاه) باشد.",
@@ -96,6 +134,7 @@ const testsData = {
     },
     insulation: {
         title: "تست مقاومت عایقی (Insulation Resistance Test)",
+        standard: "IEC 60364-6",
         overview: "تست مگاومتر (مگر) جهت سنجش سلامت عایق‌بندی سیم‌ها و کابل‌ها بین هادی‌های برق‌دار و زمین، و همچنین بین هادی‌های فاز با یکدیگر استفاده می‌شود.",
         instrument: "دستگاه مگاومتر (Insulation Tester) با ولتاژ تزریقی 250V / 500V / 1000V DC",
         limit: "حداقل مقاومت عایقی طبق IEC 60364 برابر با 1 مگااهم (1MΩ) در ولتاژ تست 500V است.",
@@ -107,6 +146,7 @@ const testsData = {
     },
     rcd: {
         title: "تست کلیدهای محافظ جان (RCD Testing)",
+        standard: "IEC 61008 / 61009",
         overview: "ارزیابی عملکرد ایمنی کلیدهای دیفرانسیل جهت اطمینان از قطع سریع مدار هنگام بروز جریان نشتی و جلوگیری از برق‌گرفتگی.",
         instrument: "دستگاه RCD Tester یا تستر چندمنظوره Chauvin Arnoux / Habotest",
         limit: "زمان قطع در جریان نامی (1xIΔn) باید کمتر از 300 میلی‌ثانیه باشد.",
@@ -118,6 +158,7 @@ const testsData = {
     },
     polarity: {
         title: "تست پلاریته (Polarity Test)",
+        standard: "IEC 60364-6",
         overview: "صحت‌سنجی قرارگیری کلیدها، فیوزها و ترمینال‌های حفاظتی دقیقاً در مسیر هادی فاز (و نه نول) جهت ایمنی کامل هنگام خاموش بودن کلید.",
         instrument: "مولتی‌متر یا تستر پیوستگی کم‌مقاومت",
         limit: "اتصال مستقیم فاز به پایه مرکزی سرپیچ لامپ‌ها و قطب اصلی کلیدها.",
@@ -129,6 +170,7 @@ const testsData = {
     },
     phase: {
         title: "تست توالی فاز (Phase Sequence Test)",
+        standard: "IEC 60364-6",
         overview: "تایید راست‌گرد بودن توالی فازها (R-S-T / L1-L2-L3) پیش از برق‌دار کردن الکتروموتورها و تجهیزات سه‌فاز حساس.",
         instrument: "دستگاه Phase Rotation Indicator (RST سنج)",
         limit: "توالی استاندارد جهت چرخش راست‌گرد (Clockwise)",
@@ -140,6 +182,7 @@ const testsData = {
     },
     earth: {
         title: "تست مقاومت الکترود زمین (Earth Resistance)",
+        standard: "IEC 60364-6",
         overview: "اندازه‌گیری مقاومت الکتریکی چاه ارت یا شبکه مش نسبت به جرم عمومی زمین جهت تخلیه ایمن جریان‌های خطا و صاعقه.",
         instrument: "دستگاه ارت‌سنج Mastech / Chauvin Arnoux ۳ یا ۴ سیمه",
         limit: "برای سیستم‌های توزیع معمولاً کمتر از 5 اهم (ترجیحاً زیر 2 اهم)",
@@ -161,6 +204,11 @@ function openTestDetail(testKey) {
     document.getElementById('detail-instrument').innerText = test.instrument;
     document.getElementById('detail-limit').innerText = test.limit;
 
+    const badge = document.getElementById('detail-badge');
+    if (badge) {
+        badge.innerText = 'استاندارد ' + test.standard;
+    }
+
     const stepsList = document.getElementById('detail-steps');
     stepsList.innerHTML = '';
     test.steps.forEach(step => {
@@ -173,8 +221,42 @@ function openTestDetail(testKey) {
     document.getElementById('test-detail-view').classList.remove('hidden');
 }
 
+
 // Close Detail View and Return to Grid
 function closeTestDetail() {
     document.getElementById('test-detail-view').classList.add('hidden');
     document.getElementById('tests-grid-view').classList.remove('hidden');
+}
+
+// Digital Business Card (vCard) Download
+// Builds a vCard 3.0 file in-browser and triggers a download — no server
+// round-trip, so it works offline and can never be "down". VERSION 3.0
+// (rather than 4.0) is used for the widest compatibility across Android
+// and iOS contact apps. CHARSET=UTF-8 is set explicitly on the
+// Persian-text fields per the vCard 3.0 spec, since omitting it can cause
+// some contact apps to render Persian names as garbled text.
+function downloadVCard() {
+    const lines = [
+        "BEGIN:VCARD",
+        "VERSION:3.0",
+        "N;CHARSET=UTF-8:خاک‌بیز;صابر;;;",
+        "FN;CHARSET=UTF-8:صابر خاک‌بیز",
+        "TITLE;CHARSET=UTF-8:مجری تست و تحویل تاسیسات برقی",
+        "TEL;TYPE=CELL,VOICE:+989225980729",
+        "EMAIL;TYPE=INTERNET:saberkhakbiz73@gmail.com",
+        "URL:https://t.me/saberk14z",
+        "ADR;TYPE=WORK;CHARSET=UTF-8:;;;گیلان;;;ایران",
+        "END:VCARD"
+    ];
+    const vcfContent = lines.join("\r\n");
+    const blob = new Blob([vcfContent], { type: "text/vcard;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "Saber-Khakbiz.vcf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
 }

@@ -105,6 +105,23 @@ html {
     transition: all 0.3s ease;
 }
 
+/* Invisible expanded touch target (WCAG 2.5.5 / 2.5.8 minimum ~44px).
+   The visible dot stays exactly its original small size — only the
+   tappable area grows, via a transparent pseudo-element. Scoped to
+   coarse pointers (touch) so mouse users keep the precise small target
+   and dots don't visually overlap each other for mouse/hover users. */
+@media (pointer: coarse) {
+    .section-pagination-bullet::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 44px;
+        height: 44px;
+    }
+}
+
 .section-pagination-bullet.active {
     background: var(--color-amber-hazard);
     box-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
@@ -138,7 +155,7 @@ html {
 @media (max-width: 640px) {
     .section-pagination {
         left: 8px;
-        gap: 8px;
+        gap: 14px;
     }
     .section-pagination-bullet {
         width: 8px;
@@ -155,4 +172,50 @@ a:focus-visible,
 button:focus-visible {
     outline: 2px solid var(--color-amber-hazard);
     outline-offset: 2px;
+}
+
+/* ============================
+   Image Skeleton Loader
+   Applied to an image's wrapper div while its <img> is still loading.
+   Removed (via the .loaded class added in the img's onload="" handler)
+   once the browser has actually rendered the image — so on a slow
+   connection the user sees a subtle pulse instead of a blank box. */
+.img-skeleton {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-skeleton::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        var(--color-navy-card) 25%,
+        var(--color-navy-border) 50%,
+        var(--color-navy-card) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-pulse 1.6s ease-in-out infinite;
+    z-index: 0;
+}
+
+.img-skeleton.loaded::before {
+    display: none;
+}
+
+.img-skeleton img {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes skeleton-pulse {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .img-skeleton::before {
+        animation: none;
+    }
 }
