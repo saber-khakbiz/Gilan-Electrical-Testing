@@ -1,25 +1,3 @@
-// Tailwind CSS Dynamic Color Configuration
-tailwind.config = {
-    theme: {
-        extend: {
-            fontFamily: {
-                sans: ['Vazirmatn', 'sans-serif'],
-            },
-            colors: {
-                navy: {
-                    base: '#0a1128',
-                    card: '#101f42',
-                    border: '#1c2d5a',
-                },
-                amber: {
-                    hazard: '#f59e0b',
-                    glow: '#fbbf24',
-                }
-            }
-        }
-    }
-};
-
 // Section Navigation (replaces Swiper)
 // Order matches the section order: Resume, Procedures, Instruments, Standards, Portfolio, Contact
 const sectionIds = ["hero", "procedures", "instruments", "standards", "portfolio", "contact"];

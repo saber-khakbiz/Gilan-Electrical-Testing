@@ -1,0 +1,18 @@
+/* Vazirmatn Variable Font — self-hosted
+   Replaces the external cdn.jsdelivr.net stylesheet. One file covers the
+   full 100–900 weight range (confirmed via the font's fvar table), so it
+   covers every weight this site uses (font-medium through font-black)
+   without needing separate files per weight.
+   font-display: swap avoids invisible text while the font loads — the
+   browser shows a fallback font immediately, then swaps once ready.
+   Path note: url() here resolves relative to THIS CSS file's own location
+   (fonts/), not relative to index.html — so it's just the filename, since
+   the woff2 sits in the same folder as this stylesheet. */
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('Vazirmatn-Variable.woff2') format('woff2 supports variations'),
+         url('Vazirmatn-Variable.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
