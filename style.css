@@ -1,6 +1,6 @@
-/* Design Variables Setup for Global Customization */
+/* Design variables */
 :root {
-    /* Color Palette Configuration */
+    /* Color palette */
     --color-navy-base: #0a1128;
     --color-navy-card: #101f42;
     --color-navy-border: #1c2d5a;
@@ -8,15 +8,19 @@
     --color-amber-glow: #fbbf24;
     --color-text-primary: #f8fafc;
 
-    /* Base Font Family */
+    /* Live / dead test tags */
+    --color-tag-dead-bg: rgba(52, 211, 153, 0.12);
+    --color-tag-dead-text: #6ee7b7;
+    --color-tag-live-bg: rgba(248, 113, 113, 0.14);
+    --color-tag-live-text: #fca5a5;
+
+    /* Base font family */
     --font-family-base: 'Vazirmatn', sans-serif;
 }
 
-/* Global Reset
-   NOTE: no forced height:100% here on purpose. The page is now a normal,
-   naturally-flowing document — its height is whatever its content needs.
-   This is what fixes the "content gets cut off" problem for good: nothing
-   is ever squeezed into an artificial container anymore. */
+/* Global reset.
+   No forced height:100% on purpose: the page is a normal flowing document,
+   so content is never squeezed into an artificial container. */
 html, body {
     margin: 0;
     padding: 0;
@@ -26,10 +30,8 @@ html, body {
 }
 
 /* Smooth scrolling + gentle section snapping.
-   "proximity" (not "mandatory") only snaps when a scroll ends near a
-   section boundary — it never fights the user or traps them on a section
-   taller than the viewport, so tall content is always fully reachable by
-   normal scrolling on every screen size and resolution. */
+   "proximity" (not "mandatory") only snaps near a section boundary, so it
+   never traps the user on a section taller than the viewport. */
 html {
     scroll-behavior: smooth;
     scroll-snap-type: y proximity;
@@ -45,13 +47,8 @@ html {
     display: block;
 }
 
-/* Each section: fills at least one screen (same "one screen per section"
-   feel as before), but grows taller automatically if its content needs
-   more room — it is never clipped and never fights its own scrollbar.
-   100dvh (dynamic viewport height) is used with a 100vh fallback line
-   above it: on modern mobile browsers dvh correctly accounts for the
-   address bar showing/hiding, which is the other classic cause of mobile
-   content being cut off at the bottom. */
+/* Each section fills at least one screen but grows with its content.
+   100dvh (with a 100vh fallback) accounts for mobile address bars. */
 .page-section {
     min-height: 100vh;
     min-height: 100dvh;
@@ -60,12 +57,11 @@ html {
     align-items: center;
     justify-content: center;
     scroll-snap-align: start;
-    scroll-margin-top: 4.5rem; /* keeps section start clear of the fixed header when jumped-to via nav/anchor */
+    scroll-margin-top: 4.5rem; /* keeps the section start clear of the fixed header */
 }
 
-/* On narrow screens, tall content should start at the top of the section
-   rather than being vertically centered (which is what caused content to
-   visually "fall in half" behind the fixed header on some phones). */
+/* On narrow screens tall content starts at the top instead of being
+   vertically centred behind the fixed header. */
 @media (max-width: 640px) {
     .page-section {
         align-items: flex-start;
@@ -73,13 +69,38 @@ html {
     }
 }
 
+/* The test detail panel is scrolled into view when opened; keep its top
+   edge clear of the fixed header (65px mobile / 81px desktop). */
+#test-detail-view {
+    scroll-margin-top: 6rem;
+}
+
+/* Header link for the section currently in view (set by script.js) */
+.nav-link[aria-current="true"] {
+    color: var(--color-amber-hazard);
+}
+
+/* Live / dead test tags */
+.tag-dead {
+    background-color: var(--color-tag-dead-bg);
+    color: var(--color-tag-dead-text);
+}
+
+.tag-live {
+    background-color: var(--color-tag-live-bg);
+    color: var(--color-tag-live-text);
+}
+
+/* Focusable headings in the detail view should not show a focus ring
+   when focus is moved there programmatically. */
+#test-detail-view h3:focus {
+    outline: none;
+}
+
 /* ============================
-   Section Navigation Dots
-   Recreates the old Swiper pagination-bullet look (amber pill on active,
-   dark dot otherwise, hover tooltip with section name) — now driven by
-   scroll position via IntersectionObserver in script.js instead of the
-   Swiper library. Kept visible on mobile too, since it's now the only
-   way to jump directly to a section without scrolling through everything. */
+   Section navigation dots
+   Amber pill on the active section, dark dot otherwise, hover tooltip with
+   the section name. Built and kept in sync by script.js (scroll-spy). */
 .section-pagination {
     position: fixed;
     top: 50%;
@@ -102,14 +123,12 @@ html {
     cursor: pointer;
     border: none;
     padding: 0;
+    text-decoration: none;
     transition: all 0.3s ease;
 }
 
-/* Invisible expanded touch target (WCAG 2.5.5 / 2.5.8 minimum ~44px).
-   The visible dot stays exactly its original small size — only the
-   tappable area grows, via a transparent pseudo-element. Scoped to
-   coarse pointers (touch) so mouse users keep the precise small target
-   and dots don't visually overlap each other for mouse/hover users. */
+/* Invisible expanded touch target (~44px, WCAG 2.5.5 / 2.5.8) for touch
+   devices only; the visible dot keeps its small size. */
 @media (pointer: coarse) {
     .section-pagination-bullet::before {
         content: "";
@@ -148,7 +167,8 @@ html {
     font-family: var(--font-family-base);
 }
 
-.section-pagination-bullet:hover::after {
+.section-pagination-bullet:hover::after,
+.section-pagination-bullet:focus-visible::after {
     opacity: 1;
 }
 
@@ -166,7 +186,7 @@ html {
     }
 }
 
-/* Visible keyboard focus for accessibility (dots, links, buttons) */
+/* Visible keyboard focus (dots, links, buttons) */
 .section-pagination-bullet:focus-visible,
 a:focus-visible,
 button:focus-visible {
@@ -175,11 +195,9 @@ button:focus-visible {
 }
 
 /* ============================
-   Image Skeleton Loader
-   Applied to an image's wrapper div while its <img> is still loading.
-   Removed (via the .loaded class added in the img's onload="" handler)
-   once the browser has actually rendered the image — so on a slow
-   connection the user sees a subtle pulse instead of a blank box. */
+   Image skeleton loader
+   Shown on an image's wrapper while the <img> loads; removed via the
+   .loaded class added by the img's onload handler. */
 .img-skeleton {
     position: relative;
     overflow: hidden;
