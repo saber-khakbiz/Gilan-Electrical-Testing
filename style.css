@@ -237,3 +237,13 @@ button:focus-visible {
         animation: none;
     }
 }
+
+/* Header width on wide screens.
+   The desktop nav links to two extra pages (regs/, shop/). Letting only the
+   header row grow from 1152px to 1280px keeps the brand subtitle from being
+   truncated at 1280px+; page content keeps its own max-width. */
+@media (min-width: 1280px) {
+    header > .max-w-6xl {
+        max-width: 80rem;
+    }
+}
