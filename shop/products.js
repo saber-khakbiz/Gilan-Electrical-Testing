@@ -1,15 +1,31 @@
 // Shop catalog and UI text.
-// To add a product: copy one object in "products", give it a unique ASCII id,
-// and fill in the fields. To add a photo: put the file in images/shop/ and set
-// "image" to "../images/shop/<file>.jpg". An empty "image" shows the drawn
-// placeholder (art: "buzzer" | "magnet" | "generic").
-// "price" is in toman as a plain number (e.g. 450000), or null for "ask price".
-// "status": "available" | "made-to-order" | "soon".
+//
+// Add a product: copy one object in "products", give it a unique id
+// (English letters, digits, "-" or "_"), and fill in the fields.
+//   category : one of the ids in "categories" below
+//   price    : toman as a plain number (e.g. 450000), or null for "ask price"
+//   status   : "available" | "made-to-order" | "soon"
+//   image    : "../images/shop/<file>.jpg", or "" for the drawn placeholder
+//   art      : placeholder drawing when there is no image:
+//              "buzzer" | "magnet" | "generic"
+//
+// Check your edits: open shop/index.html#check in the browser. It lists every
+// product with a problem; products with an error are hidden from visitors,
+// products with a warning are shown with a safe default.
+// Every entry ends with a comma except the last one in its list.
 window.SHOP_DATA = {
   config: {
     telegram: "saberk14z",
     phoneDisplay: "0922 598 0729"
   },
+
+  // Filter chips appear only for categories that have at least one product.
+  categories: [
+    { id: "circuit", name: "شناسایی مدار" },
+    { id: "probe", name: "پراب و رابط" },
+    { id: "earth", name: "ارت و همبندی" },
+    { id: "accessory", name: "لوازم جانبی" }
+  ],
 
   ui: {
     brandSub: "فروشگاه ابزار تست",
@@ -42,6 +58,16 @@ window.SHOP_DATA = {
     howTo: "روش استفاده",
     safety: "نکته‌ی ایمنی",
     photoSoon: "عکس به‌زودی",
+    filterLabel: "دسته‌بندی ابزارها",
+    filterAll: "همه",
+    emptyCat: "در این دسته فعلاً ابزاری نیست.",
+    checkTitle: "بررسی فایل محصولات",
+    checkOk: "هر {n} محصول سالم‌اند و نمایش داده می‌شوند.",
+    checkSummary: "{shown} محصول نمایش داده می‌شود. {e} محصول به‌خاطر خطا پنهان شده و {w} محصول هشدار دارد.",
+    checkItem: "محصول شماره‌ی {n}",
+    checkError: "خطا؛ پنهان شد",
+    checkWarn: "هشدار؛ با مقدار پیش‌فرض نمایش داده شد",
+    checkHint: "شماره‌ی محصول یعنی ترتیبش در فهرست products فایل shop/products.js. پس از اصلاح، صفحه را دوباره بارگذاری کن.",
     shareCopy: "کپی لینک این ابزار",
     shareCopied: "لینک کپی شد",
     close: "بستن",
@@ -81,6 +107,7 @@ window.SHOP_DATA = {
   products: [
     {
       id: "circuit-finder",
+      category: "circuit",
       name: "سرخط‌یاب صوتی",
       tagline: "پیدا کردن کلید هر پریز در تابلو، یک‌نفره",
       art: "buzzer",
@@ -103,6 +130,7 @@ window.SHOP_DATA = {
     },
     {
       id: "magnetic-probe",
+      category: "probe",
       name: "پراب مغناطیسی",
       tagline: "اتصال بدون دست به بدنه‌ها، تابلوها و شینه‌ها",
       art: "magnet",
