@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 447 306" width="447" height="306">
+  <title>Loop impedance and RCD tester (illustration)</title>
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f3a52"/><stop offset="1" stop-color="#151c2c"/></linearGradient>
+    <linearGradient id="lcd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfeadf"/><stop offset="1" stop-color="#bfd3c0"/></linearGradient>
+    <radialGradient id="knob" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#55627a"/><stop offset="1" stop-color="#232b3b"/></radialGradient>
+  </defs>
+  <rect width="447" height="306" fill="#ffffff"/>
+  <ellipse cx="215" cy="282" rx="120" ry="10" fill="#0a1128" opacity=".12"/>
+  <!-- leads -->
+  <path d="M190 46 C 200 10, 300 10, 330 120" fill="none" stroke="#c0392b" stroke-width="6" stroke-linecap="round"/>
+  <path d="M215 44 C 230 0, 330 20, 345 122" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+  <path d="M240 46 C 262 6, 356 40, 360 124" fill="none" stroke="#16a34a" stroke-width="6" stroke-linecap="round"/>
+  <!-- plug -->
+  <rect x="318" y="118" width="70" height="58" rx="14" fill="#1f2737"/>
+  <rect x="326" y="126" width="54" height="42" rx="10" fill="#2c3649"/>
+  <rect x="340" y="176" width="6" height="22" rx="3" fill="#9aa3b2"/>
+  <rect x="360" y="176" width="6" height="22" rx="3" fill="#9aa3b2"/>
+  <!-- body -->
+  <rect x="140" y="36" width="160" height="238" rx="22" fill="#f59e0b"/>
+  <rect x="150" y="46" width="140" height="218" rx="16" fill="url(#body)"/>
+  <rect x="164" y="60" width="112" height="66" rx="7" fill="url(#lcd)" stroke="#0f1626" stroke-width="2"/>
+  <text x="172" y="78" font-family="Consolas, monospace" font-size="11" fill="#1f2937">Zs  L-PE</text>
+  <text x="268" y="108" text-anchor="end" font-family="Consolas, monospace" font-size="26" font-weight="700" fill="#111827">0.42</text>
+  <text x="268" y="120" text-anchor="end" font-family="Consolas, monospace" font-size="9" fill="#374151">Ω   Ik 547A</text>
+  <!-- dial -->
+  <g stroke="#f59e0b" stroke-width="2" stroke-linecap="round">
+    <line x1="220" y1="140" x2="220" y2="146"/><line x1="252" y1="152" x2="248" y2="157"/><line x1="188" y1="152" x2="192" y2="157"/>
+    <line x1="264" y1="182" x2="258" y2="182"/><line x1="176" y1="182" x2="182" y2="182"/>
+  </g>
+  <circle cx="220" cy="182" r="30" fill="url(#knob)" stroke="#0f1626" stroke-width="2"/>
+  <rect x="216" y="156" width="8" height="26" rx="4" fill="#e5e7eb"/>
+  <!-- buttons -->
+  <rect x="166" y="228" width="44" height="20" rx="6" fill="#f59e0b"/>
+  <text x="188" y="242" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#0a1128">TEST</text>
+  <rect x="230" y="228" width="44" height="20" rx="6" fill="#3b475c"/>
+  <text x="252" y="242" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#e5e7eb">RCD</text>
+</svg>

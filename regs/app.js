@@ -235,15 +235,16 @@
 
   function route() {
     var h = (location.hash || "").replace(/^#/, "");
-    var html, isReading = false, title = UI.brand, active = null;
+    var sfx = UI.titleSuffix || "";
+    var html, isReading = false, title = UI.pageTitle || UI.brand, active = null;
     if (byId[h]) {
       html = viewSeries(byId[h]); isReading = true; active = h;
-      title = UI.topic + " " + byId[h].num + " \u00B7 " + UI.brand;
+      title = UI.topic + " " + byId[h].num + " \u00B7 " + UI.brand + sfx;
     } else if (h === "tags") {
-      html = viewTags(); title = UI.tagsTitle + " \u00B7 " + UI.brand;
+      html = viewTags(); title = UI.tagsTitle + " \u00B7 " + UI.brand + sfx;
     } else if (h.indexOf("t-") === 0 && D.tags[h.slice(2)]) {
       html = viewTag(h.slice(2)); isReading = true;
-      title = D.tags[h.slice(2)] + " \u00B7 " + UI.brand;
+      title = D.tags[h.slice(2)] + " \u00B7 " + UI.brand + sfx;
     } else {
       html = viewHome();
     }

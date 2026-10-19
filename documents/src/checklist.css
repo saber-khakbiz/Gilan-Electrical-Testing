@@ -1,0 +1,58 @@
+/* Print stylesheet shared by the checklist sources in this folder.
+   Built to A4 PDFs by tools/build_checklists.py (white paper, low ink). */
+@font-face {
+    font-family: "Vazirmatn";
+    src: url("../../fonts/Vazirmatn-Variable.woff2") format("woff2");
+    font-weight: 100 900;
+}
+@page { size: A4; margin: 13mm 12mm 16mm; }
+
+:root {
+    --ink: #0a1128;
+    --muted: #4b5875;
+    --line: #c7d0e3;
+    --soft: #eef2f9;
+    --accent: #d97706;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+    font-family: "Vazirmatn", Tahoma, sans-serif; color: var(--ink);
+    font-size: 10.5pt; line-height: 1.75; direction: rtl;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.head { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; border-bottom: 2.5px solid var(--ink); padding-bottom: 6px; margin-bottom: 10px; }
+.kicker { font-size: 8.5pt; font-weight: 800; color: var(--accent); letter-spacing: .02em; }
+h1 { margin: 0; font-size: 17pt; font-weight: 900; line-height: 1.4; }
+.sub { margin: 0; font-size: 9.5pt; color: var(--muted); }
+.brand { text-align: left; font-size: 8.5pt; color: var(--muted); line-height: 1.5; white-space: nowrap; }
+.brand b { color: var(--ink); font-size: 10pt; }
+
+.info { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px 14px; margin: 8px 0 10px; }
+.info div { display: flex; gap: 6px; align-items: flex-end; font-size: 9pt; }
+.info span { white-space: nowrap; color: var(--muted); }
+.info i { flex: 1; border-bottom: 1px dotted #8b97b3; height: 1.2em; }
+.info .wide { grid-column: span 3; }
+.info .two { grid-column: span 2; }
+
+.note { font-size: 9pt; background: var(--soft); border-right: 3px solid var(--accent); padding: 5px 10px; margin: 6px 0 10px; }
+h2 { font-size: 11.5pt; font-weight: 900; margin: 12px 0 5px; display: flex; gap: 8px; align-items: center; break-after: avoid; }
+h2 .n { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--ink); color: #fff; font-size: 9pt; }
+
+table { width: 100%; border-collapse: collapse; font-size: 9pt; line-height: 1.6; }
+th, td { border: 1px solid var(--line); padding: 4px 6px; vertical-align: top; text-align: right; }
+th { background: var(--soft); font-weight: 800; font-size: 8.5pt; }
+tr { break-inside: avoid; }
+td.c, th.c { text-align: center; width: 50px; white-space: nowrap; }
+td.w-note { width: 26%; }
+.box { display: inline-block; width: 11px; height: 11px; border: 1.4px solid var(--ink); border-radius: 2px; vertical-align: -1px; }
+.grid td { height: 22px; }
+.crit { color: var(--muted); font-size: 8.5pt; }
+.ltr { direction: ltr; unicode-bidi: isolate; }
+
+.sign { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 14px; break-inside: avoid; }
+.sign div { border-top: 1px solid var(--ink); padding-top: 4px; font-size: 9pt; text-align: center; color: var(--muted); }
+.lines div { border-bottom: 1px dotted #8b97b3; height: 22px; }
+.foot { margin-top: 12px; font-size: 8pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 5px; }
+.page-break { break-before: page; }
+.url { direction: ltr; unicode-bidi: isolate; white-space: nowrap; }

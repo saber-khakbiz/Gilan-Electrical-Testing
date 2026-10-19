@@ -620,7 +620,27 @@
       return;
     }
 
+    var alt = el.closest("[data-alt]");
+    if (alt) {
+      if (!form.name) {
+        e.preventDefault();
+        formMsg.hidden = false;
+        document.getElementById("f-name").focus();
+        return;
+      }
+      // Other messengers have no draft-text link, so the order is copied first.
+      copyText(buildMessage(), function () {}, function () {
+        document.getElementById("previewBox").open = true;
+        selectNode(preview);
+      });
+      var hint = document.getElementById("sentHint");
+      hint.textContent = fill(t("altHint"), { name: alt.getAttribute("data-name") });
+      hint.hidden = false;
+      return;
+    }
+
     if (el.closest("#sendTg")) {
+      setText("sentHint", t("sentHint"));
       if (!form.name) {
         e.preventDefault();
         formMsg.hidden = false;
@@ -667,6 +687,17 @@
   setText("sentHint", t("sentHint"));
   setText("altContact", fill(t("altContact"), { phone: CFG.phoneDisplay || "" }));
   setText("footText", t("footer"));
+  var alts = (Array.isArray(CFG.altMessengers) ? CFG.altMessengers : []).filter(function (m) {
+    return m && str(m.name) && /^https:\/\//.test(str(m.url));
+  });
+  if (alts.length) {
+    var box = document.getElementById("sendAlts");
+    box.innerHTML = alts.map(function (m) {
+      return '<a class="send-alt" href="' + esc(str(m.url)) + '" target="_blank" rel="noopener" data-alt="1" data-name="' +
+        esc(str(m.name)) + '">' + esc(fill(t("sendAlt"), { name: str(m.name) })) + "</a>";
+    }).join("");
+    box.hidden = false;
+  }
   var steps = Array.isArray(UI.steps) ? UI.steps : [];
   document.getElementById("steps").innerHTML = steps.map(function (s, i) {
     return '<li><span class="step-n">' + faDigits(i + 1) + "</span><span>" + esc(s) + "</span></li>";

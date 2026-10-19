@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>چک‌لیست تست نقطه‌به‌نقطه‌ی اسکادا</title>
+<link rel="stylesheet" href="checklist.css">
+</head>
+<body>
+<header class="head">
+    <div>
+        <div class="kicker">RTU / Gateway تا مرکز کنترل · <span class="ltr">IEC 60870-5-104 / 101</span></div>
+        <h1>چک‌لیست تست نقطه‌به‌نقطه‌ی اسکادا</h1>
+        <p class="sub">سیگنال‌های دیجیتال، اندازه‌گیری‌ها و فرمان‌ها</p>
+    </div>
+    <div class="brand"><b>صابر خاک‌بیز</b><br>اسکادا و اتوماسیون پست</div>
+</header>
+
+<section class="info">
+    <div class="two"><span>نام پست:</span><i></i></div>
+    <div><span>تاریخ:</span><i></i></div>
+    <div><span>RTU / Gateway (مدل):</span><i></i></div>
+    <div><span>نسخه‌ی پیکربندی:</span><i></i></div>
+    <div><span>کانال ارتباطی:</span><i></i></div>
+    <div><span>مرکز کنترل:</span><i></i></div>
+    <div><span>نماینده‌ی سایت:</span><i></i></div>
+    <div><span>نماینده‌ی مرکز کنترل:</span><i></i></div>
+</section>
+
+<p class="note">هر سیگنال در منبع واقعی خودش تغییر داده شود (تجهیز یا ترمینال ورودی)، نه با شبیه‌سازی داخل RTU؛ فقط این‌طور کل مسیر سیم‌کشی، پیکربندی و مرکز کنترل با هم آزموده می‌شود. پیش از تست فرمان‌ها، با مرکز کنترل و بهره‌بردار هماهنگ کنید.</p>
+
+<h2><span class="n">۱</span>پیش‌نیازها</h2>
+<table>
+<thead><tr><th>مورد</th><th class="c">انجام شد</th><th class="w-note">توضیح</th></tr></thead>
+<tbody>
+<tr><td>فهرست سیگنال تأییدشده: آدرس IOA، نوع ASDU، نام، مقیاس و واحد</td><td class="c"><span class="box"></span></td><td></td></tr>
+<tr><td>پارامترهای ارتباط مطابق فهرست: IP، پورت <span class="ltr">2404</span>، آدرس مشترک (CASDU)، طول فیلدها، تایمرهای <span class="ltr">t0–t3</span> و <span class="ltr">k / w</span></td><td class="c"><span class="box"></span></td><td></td></tr>
+<tr><td>پشتیبان پیکربندی RTU پیش از تست گرفته و نسخه‌ی آن ثبت شده است</td><td class="c"><span class="box"></span></td><td></td></tr>
+</tbody></table>
+
+<h2><span class="n">۲</span>ارتباط</h2>
+<table>
+<thead><tr><th>مورد</th><th class="c">انجام شد</th><th class="w-note">توضیح</th></tr></thead>
+<tbody>
+<tr><td>برقراری اتصال و STARTDT؛ TESTFR در زمان بیکاری</td><td class="c"><span class="box"></span></td><td></td></tr>
+<tr><td>General Interrogation همه‌ی نقاط را با کیفیت معتبر برمی‌گرداند</td><td class="c"><span class="box"></span></td><td></td></tr>
+<tr><td>همزمانی ساعت (C_CS یا NTP) و صحت برچسب زمان CP56Time2a</td><td class="c"><span class="box"></span></td><td></td></tr>
+<tr><td>جابه‌جایی کانال اصلی و پشتیبان، در صورت وجود</td><td class="c"><span class="box"></span></td><td></td></tr>
+</tbody></table>
+
+<h2><span class="n">۳</span>سیگنال‌ها، اندازه‌گیری‌ها و فرمان‌ها</h2>
+<table>
+<thead><tr><th>مورد</th><th class="c">انجام شد</th><th class="w-note">توضیح</th></tr></thead>
+<tbody>
+<tr><td>دیجیتال (M_SP / M_DP): حالت و نام درست در مرکز، برچسب زمان، ثبت در لیست رویداد</td><td class="c"><span class="box"></span></td><td></td></tr>
+<tr><td>دوبیتی: حالت‌های میانی و نامعتبر (<span class="ltr">00</span> و <span class="ltr">11</span>)؛ بیت‌های کیفیت (IV، NT، SB، BL)</td><td class="c"><span class="box"></span></td><td></td></tr>
+<tr><td>اندازه‌گیری (M_ME): تزریق مقدار معلوم؛ مقیاس، واحد و علامت جهت (ورود/خروج MW و MVAr)</td><td class="c"><span class="box"></span></td><td></td></tr>
+<tr><td>باند مرده، حدهای آلارم و موقعیت تپ</td><td class="c"><span class="box"></span></td><td></td></tr>
+<tr><td>فرمان (C_SC / C_DC / C_RC): Select-Before-Operate، انقضای زمان انتخاب، بازخورد وضعیت</td><td class="c"><span class="box"></span></td><td></td></tr>
+<tr><td>رد فرمان در حالت Local و هنگام فعال بودن اینترلاک؛ نبود فرمان ناخواسته به بی دیگر</td><td class="c"><span class="box"></span></td><td></td></tr>
+<tr><td>پس از تست: جمع‌آوری دسترسی‌های موقت (لپ‌تاپ، پورت سرویس، حساب مهندسی) و تغییر رمزهای پیش‌فرض</td><td class="c"><span class="box"></span></td><td></td></tr>
+</tbody></table>
+
+<h2 class="page-break"><span class="n">۴</span>جدول ثبت نقطه‌به‌نقطه</h2>
+<table class="grid">
+<thead><tr><th style="width:9%">IOA</th><th style="width:24%">نام سیگنال</th><th style="width:10%">نوع ASDU</th><th>حالت / مقدار اعمال‌شده</th><th class="c">RTU</th><th class="c">مرکز</th><th style="width:12%">زمان</th><th class="c">نتیجه</th></tr></thead>
+<tbody>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+
+<div class="sign"><div>نماینده‌ی سایت: نام و امضا</div><div>نماینده‌ی مرکز کنترل</div><div>دستگاه نظارت</div></div>
+
+<p class="foot">این چک‌لیست راهنمای عملی است و جایگزین فهرست سیگنال تأییدشده، دستورالعمل‌های مرکز کنترل و مشخصات فنی پروژه نیست. تهیه: صابر خاک‌بیز · <span class="url">saber-khakbiz.github.io/Gilan-Electrical-Testing</span></p>
+</body>
+</html>

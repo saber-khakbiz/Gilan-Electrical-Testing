@@ -1,18 +1,22 @@
 // Software products and UI text for software/index.html and the products hub.
 //
 // Screenshots: copy the PNG files from the Amper Card repo (docs/images/)
-// into images/software/ampercard/ with the same names. Any file that is not
-// there yet is simply left out of the page; nothing needs to change here.
+// into images/software/ampercard/ with the same names, then move each one's
+// line from "screenshotsPending" into "screenshots". A listed file that is
+// missing is left out of the page instead of showing a broken image.
 // The first screenshot is the main image on the page and on the hub.
 // bare: true marks an image with its own transparent background (no frame).
 // banner (optional): a wide cover image shown above the product.
 //
 // editions[].price: toman as a plain number, 0 for free, or null for "ask price".
+// config.altMessengers: optional second order channel, same format as in
+// shop/products.js, e.g. [ { name: "...", url: "https://ble.ir/your_id" } ].
 // Every entry ends with a comma except the last one in its list.
 window.SOFTWARE_DATA = {
   config: {
     telegram: "saberk14z",
-    phoneDisplay: "0922 598 0729"
+    phoneDisplay: "0922 598 0729",
+    altMessengers: []
   },
 
   ui: {
@@ -43,6 +47,8 @@ window.SOFTWARE_DATA = {
     close: "بستن",
     shotOf: "{i} از {n}",
     sentHint: "تلگرام باز شد و متن پیام هم کپی شد. اگر متن در کادر پیام نیامد، Paste کن و بفرست.",
+    altOrder: "یا سفارش در:",
+    altHint: "متن پیام کپی شد. در {name} آن را Paste کن و بفرست.",
     altContact: "تلگرام باز نمی‌شود؟ با شماره‌ی {phone} تماس بگیر.",
     msgOrder: "سلام، از سایت درخواست {name} ({edition}) دارم.",
     footer: "خرید و نصب پس از هماهنگی در تلگرام انجام می‌شود.",
@@ -67,7 +73,12 @@ window.SOFTWARE_DATA = {
       ],
 
       screenshots: [
-        { src: "../images/software/ampercard/themes.png", caption: "صفحه‌ی اپراتور در پوسته‌ی تیره و روشن: پنجره‌ی ثبت باز است، شمارش معکوس دارد و مقدار خارج از محدوده (۶۱۲٫۴ آمپر) علامت خورده است.", bare: true },
+        { src: "../images/software/ampercard/themes.png", caption: "صفحه‌ی اپراتور در پوسته‌ی تیره و روشن: پنجره‌ی ثبت باز است، شمارش معکوس دارد و مقدار خارج از محدوده (۶۱۲٫۴ آمپر) علامت خورده است.", bare: true }
+      ],
+
+      // Captions ready for the remaining screenshots. When a file is uploaded to
+      // images/software/ampercard/, move its line up into "screenshots".
+      screenshotsPending: [
         { src: "../images/software/ampercard/operator-entry.png", caption: "صفحه‌ی اپراتور: پنجره‌ی ثبت ساعت ۲۱:۰۵ باز است و شمارش معکوس دارد؛ مقدار خارج از محدوده علامت خورده و قرائت قبلی کنار هر مقدار دیده می‌شود." },
         { src: "../images/software/ampercard/submit-signature.png", caption: "ثبت و امضا: خلاصه‌ی قرائت، مقادیر خارج از محدوده، نام و PIN اپراتور." },
         { src: "../images/software/ampercard/go-to-date-calendar.png", caption: "رفتن به تاریخ (Ctrl+G): تقویم شمسی که هر روز را بر اساس وضعیت قرائت‌هایش رنگ می‌کند." },
