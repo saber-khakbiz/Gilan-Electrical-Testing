@@ -126,6 +126,16 @@ main.wrap { padding-block: 24px 64px; display: grid; gap: 28px; }
 .p-hero-media { min-width: 0; }
 .p-hero-shot { all: unset; display: block; cursor: zoom-in; }
 .p-hero-shot:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 10px; }
+/* wide cover banner above the product */
+.p-banner { margin: 0 0 -8px; }
+.p-banner img {
+    display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid #22335f;
+    box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .8);
+}
+.has-banner .p-name {
+    position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+.p-hero-shot.is-bare img { border: 0; background: none; box-shadow: none; filter: drop-shadow(0 30px 40px rgba(0, 0, 0, .45)); }
 .p-hero-shot img, .p-hero-ph .win {
     display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid #2a3a66; background: #0b1530;
     box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .75), 0 0 0 1px rgba(245, 158, 11, .12);
@@ -293,6 +303,7 @@ dialog.lb::backdrop { background: rgba(2, 6, 18, .88); }
 .lb-inner { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 8px; }
 .lb-fig { margin: 0; display: grid; gap: 8px; justify-items: center; min-width: 0; }
 .lb-fig img { max-height: calc(100vh - 110px); width: auto; border-radius: 8px; border: 1px solid #2a3a66; background: #0b1530; }
+.lb-fig img.is-bare { border: 0; background: none; }
 .lb-meta { display: flex; gap: 12px; font-size: 14px; color: var(--body); }
 .lb-count { color: var(--muted); font-variant-numeric: tabular-nums; }
 .lb-nav, .lb-close {

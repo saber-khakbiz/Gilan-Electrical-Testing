@@ -54,7 +54,8 @@
       platform: str(p.platform), version: str(p.version),
       stats: list(p.stats).filter(function (s) { return s && str(s.value) && str(s.label); }),
       shots: list(p.screenshots).filter(function (s) { return s && str(s.src); })
-        .map(function (s) { return { src: str(s.src), caption: str(s.caption), failed: false }; }),
+        .map(function (s) { return { src: str(s.src), caption: str(s.caption), bare: !!s.bare, failed: false }; }),
+      banner: p.banner && str(p.banner.src) ? { src: str(p.banner.src), alt: str(p.banner.alt) } : null,
       timeline: tl && list(tl.phases).length ? {
         title: str(tl.title), text: str(tl.text), fork: str(tl.fork), note: str(tl.note),
         phases: list(tl.phases).filter(function (x) { return x && str(x.name); }),
@@ -124,10 +125,17 @@
     if (p.version) chips += '<span class="chip"><span class="chip-k">' + esc(t("version")) + '</span><bdi dir="ltr">' + esc(p.version) + "</bdi></span>";
 
     var heroShot = main
-      ? '<button type="button" class="p-hero-shot" data-shot="' + esc(p.id) + '" data-i="0" aria-label="' + esc(t("galleryTitle")) + '">' +
+      ? '<button type="button" class="p-hero-shot' + (main.bare ? " is-bare" : "") + '" data-shot="' + esc(p.id) + '" data-i="0" aria-label="' + esc(t("galleryTitle")) + '">' +
         '<img class="shot-img" src="' + esc(main.src) + '" alt="' + esc(main.caption || p.name) + '" decoding="async" data-pid="' + esc(p.id) + '" data-k="0" data-hero="1"></button>' +
         '<div class="p-hero-ph" hidden>' + placeholder(p) + "</div>"
       : '<div class="p-hero-ph">' + placeholder(p) + "</div>";
+
+    // Optional wide cover. The text name stays in the page for screen readers
+    // and search engines, and is shown again if the banner file is missing.
+    var banner = p.banner
+      ? '<figure class="p-banner"><img src="' + esc(p.banner.src) + '" alt="' + esc(p.banner.alt || p.name) +
+        '" decoding="async" data-banner="' + esc(p.id) + '"></figure>'
+      : "";
 
     var hero =
       '<header class="p-hero">' +
@@ -213,7 +221,7 @@
       return "<details><summary>" + esc(f.q) + "</summary><p>" + esc(f.a) + "</p></details>";
     }).join("") + "</div>") : "";
 
-    return '<article class="product" id="' + esc(p.id) + '">' + hero + stats + gallery + timeline + features + security +
+    return '<article class="product" id="' + esc(p.id) + '">' + banner + hero + stats + gallery + timeline + features + security +
       editions + delivery + req + faq + "</article>";
   }
 
@@ -223,8 +231,14 @@
   // Image errors do not bubble, so listen in the capture phase. A missing file
   // hides its thumbnail (or swaps the hero to the drawn placeholder) and is
   // skipped by the lightbox.
+  document.addEventListener("load", function (e) {
+    var img = e.target;
+    if (img && img.tagName === "IMG" && img.hasAttribute("data-banner")) img.closest(".product").classList.add("has-banner");
+  }, true);
+
   document.addEventListener("error", function (e) {
     var img = e.target;
+    if (img && img.tagName === "IMG" && img.hasAttribute("data-banner")) { img.closest(".p-banner").hidden = true; return; }
     if (!img || img.tagName !== "IMG" || !img.hasAttribute("data-pid")) return;
     var p = byId[img.getAttribute("data-pid")];
     var k = Number(img.getAttribute("data-k"));
@@ -257,6 +271,7 @@
     var s = cur.p.shots[cur.k];
     var vis = visible(cur.p);
     lbImg.src = s.src;
+    lbImg.classList.toggle("is-bare", s.bare);
     lbImg.alt = s.caption || cur.p.name;
     lbCap.textContent = s.caption;
     lbCap.hidden = !s.caption;

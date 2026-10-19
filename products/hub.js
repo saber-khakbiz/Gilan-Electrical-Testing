@@ -53,12 +53,20 @@
         // Data paths are relative to software/; both folders sit at the same depth.
         // The drawn skeleton stays underneath until the real screenshot loads,
         // and comes back if the file is not on the server yet.
+        var bare = !!a.screenshots[0].bare;
         var img = new Image();
         img.alt = "";
         img.decoding = "async";
         img.onload = function () {
-          el("swShot").appendChild(img);
-          el("swShot").closest(".win").classList.add("has-shot");
+          var win = el("swShot").closest(".win");
+          if (bare) {
+            // Image with its own transparent background: show it instead of the drawn window.
+            img.className = "door-shot";
+            win.parentNode.replaceChild(img, win);
+          } else {
+            el("swShot").appendChild(img);
+            win.classList.add("has-shot");
+          }
         };
         img.src = shot;
       }

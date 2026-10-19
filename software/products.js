@@ -4,6 +4,8 @@
 // into images/software/ampercard/ with the same names. Any file that is not
 // there yet is simply left out of the page; nothing needs to change here.
 // The first screenshot is the main image on the page and on the hub.
+// bare: true marks an image with its own transparent background (no frame).
+// banner (optional): a wide cover image shown above the product.
 //
 // editions[].price: toman as a plain number, 0 for free, or null for "ask price".
 // Every entry ends with a comma except the last one in its list.
@@ -55,6 +57,7 @@ window.SOFTWARE_DATA = {
       summary: "اپراتور پست، جریان، ولتاژ، MW، MVAr، وضعیت تپ و دما را در ساعت‌های مشخص روی برگه‌ی کاغذی آمپرکارت می‌نویسد؛ برگه‌ای که می‌شود بعداً پرش کرد، تاریخش را عقب برد، «اصلاحش» کرد یا گمش کرد. Amper Card هر قرائت را فقط در بازه‌ی کوتاهی حول زمان خودش می‌پذیرد، آن را با امضای اپراتور رمزنگاری می‌کند و به همه‌ی رکوردهای قبلی زنجیر می‌کند.",
       platform: "ویندوز ۷ تا ۱۱",
       version: "1.5.4",
+      banner: { src: "../images/software/ampercard/banner.png", alt: "Amper Card: دفتر قرائت پست برق، مقاوم در برابر دستکاری" },
 
       stats: [
         { value: "700 KB", label: "یک فایل اجرایی؛ بدون سرور، پایگاه داده و اینترنت" },
@@ -64,6 +67,7 @@ window.SOFTWARE_DATA = {
       ],
 
       screenshots: [
+        { src: "../images/software/ampercard/themes.png", caption: "صفحه‌ی اپراتور در پوسته‌ی تیره و روشن: پنجره‌ی ثبت باز است، شمارش معکوس دارد و مقدار خارج از محدوده (۶۱۲٫۴ آمپر) علامت خورده است.", bare: true },
         { src: "../images/software/ampercard/operator-entry.png", caption: "صفحه‌ی اپراتور: پنجره‌ی ثبت ساعت ۲۱:۰۵ باز است و شمارش معکوس دارد؛ مقدار خارج از محدوده علامت خورده و قرائت قبلی کنار هر مقدار دیده می‌شود." },
         { src: "../images/software/ampercard/submit-signature.png", caption: "ثبت و امضا: خلاصه‌ی قرائت، مقادیر خارج از محدوده، نام و PIN اپراتور." },
         { src: "../images/software/ampercard/go-to-date-calendar.png", caption: "رفتن به تاریخ (Ctrl+G): تقویم شمسی که هر روز را بر اساس وضعیت قرائت‌هایش رنگ می‌کند." },
@@ -74,8 +78,7 @@ window.SOFTWARE_DATA = {
         { src: "../images/software/ampercard/measurement-points.png", caption: "نقاط اندازه‌گیری: ورود از اکسل یا ویرایش در محل، با محدوده‌ی مجاز؛ تغییرات نسخه‌بندی می‌شوند." },
         { src: "../images/software/ampercard/settings.png", caption: "تنظیمات: سیاست‌های ثبت، هشدارها، امنیت، محافظت از ساعت و پشتیبان خودکار." },
         { src: "../images/software/ampercard/startup-clock-check.png", caption: "بررسی ساعت هنگام شروع: اپراتور تاریخ و ساعت را با گوشی یا ساعت دیواری تطبیق می‌دهد." },
-        { src: "../images/software/ampercard/splash.png", caption: "شروع برنامه: صحت همه‌ی رکوردها در هر بار اجرا بررسی می‌شود." },
-        { src: "../images/software/ampercard/themes.png", caption: "پوسته‌ی تیره و روشن، از ۱۰۲۴×۷۶۸ به بالا و مقیاس ۱۰۰ تا ۱۵۰ درصد." }
+        { src: "../images/software/ampercard/splash.png", caption: "شروع برنامه: صحت همه‌ی رکوردها در هر بار اجرا بررسی می‌شود." }
       ],
 
       timeline: {
