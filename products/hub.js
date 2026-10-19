@@ -51,7 +51,16 @@
       var shot = Array.isArray(a.screenshots) && a.screenshots[0] && str(a.screenshots[0].src);
       if (shot) {
         // Data paths are relative to software/; both folders sit at the same depth.
-        el("swShot").innerHTML = '<img src="' + esc(shot) + '" alt="" loading="lazy" decoding="async">';
+        // The drawn skeleton stays underneath until the real screenshot loads,
+        // and comes back if the file is not on the server yet.
+        var img = new Image();
+        img.alt = "";
+        img.decoding = "async";
+        img.onload = function () {
+          el("swShot").appendChild(img);
+          el("swShot").closest(".win").classList.add("has-shot");
+        };
+        img.src = shot;
       }
       var chips = [];
       if (str(a.platform)) chips.push(a.platform);
