@@ -9,6 +9,11 @@
 //   art      : placeholder drawing when there is no image:
 //              "buzzer" | "magnet" | "generic"
 //
+// Second order channel: Telegram is filtered in Iran, so a domestic messenger
+// can be added in config.altMessengers, e.g.
+//   altMessengers: [ { name: "...", url: "https://ble.ir/your_id" } ]
+// Each entry adds a button that copies the order text and opens that chat.
+//
 // Check your edits: open shop/index.html#check in the browser. It lists every
 // product with a problem; products with an error are hidden from visitors,
 // products with a warning are shown with a safe default.
@@ -16,7 +21,8 @@
 window.SHOP_DATA = {
   config: {
     telegram: "saberk14z",
-    phoneDisplay: "0922 598 0729"
+    phoneDisplay: "0922 598 0729",
+    altMessengers: []
   },
 
   // Filter chips appear only for categories that have at least one product.
@@ -84,6 +90,8 @@ window.SHOP_DATA = {
     fNote: "توضیحات (اختیاری)",
     needName: "نام را بنویس تا سفارش کامل باشد.",
     sendTg: "ارسال سفارش در تلگرام",
+    sendAlt: "ارسال سفارش در {name}",
+    altHint: "متن سفارش کپی شد. در {name} آن را Paste کن و بفرست.",
     copyOrder: "کپی متن سفارش",
     copiedOrder: "متن سفارش کپی شد",
     sentHint: "تلگرام باز شد و متن سفارش هم کپی شد. اگر متن در کادر پیام نیامد، آن را Paste کن و بفرست.",

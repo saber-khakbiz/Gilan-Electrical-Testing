@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 447 306" width="447" height="306">
+  <title>True RMS clamp meter (illustration)</title>
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f3a52"/><stop offset="1" stop-color="#151c2c"/></linearGradient>
+    <linearGradient id="lcd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfeadf"/><stop offset="1" stop-color="#bfd3c0"/></linearGradient>
+    <linearGradient id="cu" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3b27a"/><stop offset="1" stop-color="#b45309"/></linearGradient>
+  </defs>
+  <rect width="447" height="306" fill="#ffffff"/>
+  <ellipse cx="223" cy="290" rx="70" ry="7" fill="#0a1128" opacity=".12"/>
+  <!-- conductor through the jaw -->
+  <rect x="40" y="56" width="367" height="22" rx="11" fill="#1f2937"/>
+  <rect x="40" y="62" width="367" height="10" rx="5" fill="url(#cu)" opacity=".35"/>
+  <!-- jaw -->
+  <path d="M175 112 C 160 40, 286 40, 271 112" fill="none" stroke="#f59e0b" stroke-width="26" stroke-linecap="round"/>
+  <line x1="223" y1="30" x2="223" y2="46" stroke="#ffffff" stroke-width="4"/>
+  <!-- body -->
+  <rect x="178" y="104" width="90" height="180" rx="20" fill="url(#body)" stroke="#0f1626" stroke-width="2"/>
+  <rect x="160" y="140" width="20" height="40" rx="8" fill="#f59e0b"/>
+  <rect x="190" y="120" width="66" height="50" rx="6" fill="url(#lcd)" stroke="#0f1626" stroke-width="2"/>
+  <text x="196" y="133" font-family="Consolas, monospace" font-size="8" fill="#374151">TRMS AC</text>
+  <text x="250" y="160" text-anchor="end" font-family="Consolas, monospace" font-size="20" font-weight="700" fill="#111827">12.6</text>
+  <text x="250" y="168" text-anchor="end" font-family="Consolas, monospace" font-size="7" fill="#374151">A</text>
+  <circle cx="223" cy="210" r="24" fill="#232b3b" stroke="#f59e0b" stroke-width="3"/>
+  <rect x="219" y="190" width="8" height="20" rx="4" fill="#e5e7eb"/>
+  <g fill="#3b475c"><rect x="192" y="248" width="16" height="12" rx="3"/><rect x="215" y="248" width="16" height="12" rx="3"/><rect x="238" y="248" width="16" height="12" rx="3"/></g>
+</svg>

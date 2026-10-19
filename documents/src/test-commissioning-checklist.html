@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>چک‌لیست تست و تحویل تاسیسات برقی</title>
+<link rel="stylesheet" href="checklist.css">
+</head>
+<body>
+<header class="head">
+    <div>
+        <div class="kicker">به ترتیب IEC 60364-6: ابتدا تست‌های بدون برق، سپس تست‌های با برق</div>
+        <h1>چک‌لیست تست و تحویل تاسیسات برقی</h1>
+        <p class="sub">ساختمان‌های مسکونی، تجاری و صنعتی فشار ضعیف</p>
+    </div>
+    <div class="brand"><b>صابر خاک‌بیز</b><br>تست و تحویل تاسیسات برقی، گیلان</div>
+</header>
+
+<section class="info">
+    <div class="two"><span>نام پروژه:</span><i></i></div>
+    <div><span>تاریخ:</span><i></i></div>
+    <div class="wide"><span>نشانی:</span><i></i></div>
+    <div><span>مالک / کارفرما:</span><i></i></div>
+    <div><span>آزمونگر:</span><i></i></div>
+    <div><span>ناظر:</span><i></i></div>
+    <div><span>سیستم زمین (TN-C-S / TT / ...):</span><i></i></div>
+    <div><span>ولتاژ نامی:</span><i></i></div>
+    <div><span>تعداد مدارها:</span><i></i></div>
+    <div class="wide"><span>دستگاه‌ها، شماره‌ی سریال و تاریخ کالیبراسیون:</span><i></i></div>
+</section>
+
+<p class="note">تست‌های با برق (۶ تا ۹) فقط پس از قبولی همه‌ی تست‌های بدون برق انجام می‌شوند. پیش از هر تست بدون برق: قطع، قفل و برچسب‌گذاری کلید اصلی و تأیید بی‌برقی با ولت‌متر.</p>
+
+<h2><span class="n">۱</span>بازرسی چشمی (پیش از هر اندازه‌گیری)</h2>
+<table>
+    <thead><tr><th>مورد</th><th class="c">مطابق</th><th class="c">نامطابق</th><th class="w-note">توضیح</th></tr></thead>
+    <tbody>
+        <tr><td>تطبیق تابلوها و مدارها با نقشه‌ی تک‌خطی تأییدشده و برچسب‌گذاری مدارها</td><td class="c"><span class="box"></span></td><td class="c"><span class="box"></span></td><td></td></tr>
+        <tr><td>سطح مقطع، رنگ‌بندی و نحوه‌ی اتصال هادی‌ها (هادی حفاظتی فقط سبز-زرد)</td><td class="c"><span class="box"></span></td><td class="c"><span class="box"></span></td><td></td></tr>
+        <tr><td>نوع، جریان نامی و قدرت قطع کلیدها و فیوزها نسبت به کابل‌ها</td><td class="c"><span class="box"></span></td><td class="c"><span class="box"></span></td><td></td></tr>
+        <tr><td>وجود و اتصال هادی‌های حفاظتی و همبندی اصلی و فرعی</td><td class="c"><span class="box"></span></td><td class="c"><span class="box"></span></td><td></td></tr>
+        <tr><td>جداسازی N و PE پس از نقطه‌ی تفکیک؛ نبود اتصال نول به ارت در تابلوهای فرعی</td><td class="c"><span class="box"></span></td><td class="c"><span class="box"></span></td><td></td></tr>
+    </tbody>
+</table>
+
+<h2><span class="n">۲</span>تست‌ها و معیار پذیرش</h2>
+<table>
+    <thead><tr><th style="width:22px">#</th><th style="width:24%">تست</th><th style="width:20%">دستگاه</th><th>معیار پذیرش</th><th class="c">قبول</th><th class="c">رد</th></tr></thead>
+    <tbody>
+        <tr><td>۲</td><td>پیوستگی هادی حفاظتی و همبندی (R1+R2) <span class="crit">بدون برق</span></td><td><span class="ltr">IEC 61557-4</span>، جریان تست حداقل <span class="ltr">200 mA</span></td><td>همخوانی با مقدار محاسباتی از جنس، طول و مقطع هادی؛ مقدار برای ارزیابی Zs ثبت شود.</td><td class="c"><span class="box"></span></td><td class="c"><span class="box"></span></td></tr>
+        <tr><td>۳</td><td>مقاومت عایقی <span class="crit">بدون برق</span></td><td><span class="ltr">IEC 61557-2</span></td><td>SELV/PELV: ولتاژ تست <span class="ltr">250 V</span>، حداقل <span class="ltr">0.5 MΩ</span> — تا <span class="ltr">500 V</span>: ولتاژ تست <span class="ltr">500 V</span>، حداقل <span class="ltr">1 MΩ</span> — بالای <span class="ltr">500 V</span>: <span class="ltr">1000 V</span>، حداقل <span class="ltr">1 MΩ</span>. پیش از تست، SPD و تجهیزات الکترونیکی جدا شوند.</td><td class="c"><span class="box"></span></td><td class="c"><span class="box"></span></td></tr>
+        <tr><td>۴</td><td>پلاریته <span class="crit">بدون برق</span></td><td>تستر پیوستگی یا مولتی‌متر</td><td>کلید تک‌پل و فیوز فقط در مسیر فاز؛ فاز به کنتاکت مرکزی سرپیچ و ترمینال درست پریز.</td><td class="c"><span class="box"></span></td><td class="c"><span class="box"></span></td></tr>
+        <tr><td>۵</td><td>مقاومت الکترود زمین <span class="crit">بدون برق</span></td><td><span class="ltr">IEC 61557-5</span>، روش افت پتانسیل (۶۲٪) یا کلمپ</td><td>در TT: <span class="ltr">RA × IΔn ≤ 50 V</span>. حد عددی طبق ضوابط شرکت توزیع یا مشخصات پروژه. با جابه‌جایی میله‌ی P به اندازه‌ی ۱۰٪ تأیید شود.</td><td class="c"><span class="box"></span></td><td class="c"><span class="box"></span></td></tr>
+        <tr><td>۶</td><td>امپدانس حلقه‌ی خطا و جریان اتصال کوتاه (Zs / PFC) <span class="crit">با برق</span></td><td><span class="ltr">IEC 61557-3</span></td><td><span class="ltr">Zs × Ia ≤ U0</span> برای قطع در زمان مجاز (مثلاً <span class="ltr">0.4 s</span> برای مدار نهایی TN در <span class="ltr">230 V</span>)؛ PFC کمتر از قدرت قطع کلید.</td><td class="c"><span class="box"></span></td><td class="c"><span class="box"></span></td></tr>
+        <tr><td>۷</td><td>کلید جریان باقیمانده (RCD) <span class="crit">با برق</span></td><td><span class="ltr">IEC 61557-6</span></td><td>در <span class="ltr">0.5×IΔn</span> قطع نکند؛ در <span class="ltr">1×IΔn</span> حداکثر <span class="ltr">300 ms</span> (نوع S: <span class="ltr">130–500 ms</span>)؛ در <span class="ltr">5×IΔn</span> حداکثر <span class="ltr">40 ms</span>. زاویه‌های <span class="ltr">0°</span> و <span class="ltr">180°</span>.</td><td class="c"><span class="box"></span></td><td class="c"><span class="box"></span></td></tr>
+        <tr><td>۸</td><td>توالی فاز <span class="crit">با برق</span></td><td>فازسنج چرخشی</td><td>راست‌گرد <span class="ltr">L1-L2-L3</span>، مطابق نقشه و یکسان در همه‌ی تابلوها.</td><td class="c"><span class="box"></span></td><td class="c"><span class="box"></span></td></tr>
+        <tr><td>۹</td><td>افت ولتاژ <span class="crit">با برق</span></td><td>ولت‌متر True RMS و بار مقاومتی</td><td>تغذیه از شبکه‌ی عمومی فشار ضعیف: روشنایی حداکثر ۳٪ و سایر مصارف حداکثر ۵٪ از مبدأ (<span class="ltr">IEC 60364-5-52</span>، پیوست G).</td><td class="c"><span class="box"></span></td><td class="c"><span class="box"></span></td></tr>
+    </tbody>
+</table>
+
+<h2><span class="n">۳</span>نتایج به تفکیک مدار</h2>
+<table class="grid">
+    <thead><tr><th>مدار / تابلو</th><th>کلید (نوع، In)</th><th>مقطع mm²</th><th>R1+R2 Ω</th><th>عایقی MΩ</th><th>Zs Ω</th><th>RCD 1× ms</th><th>RCD 5× ms</th><th>افت ولتاژ ٪</th><th class="c">نتیجه</th></tr></thead>
+    <tbody>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+</table>
+<p class="crit">مقادیر مبدأ تاسیسات: <span class="ltr">Ze = ........ Ω</span> &nbsp;&nbsp; <span class="ltr">PFC = ........ kA</span> &nbsp;&nbsp; مقاومت الکترود زمین: <span class="ltr">........ Ω</span></p>
+
+<h2><span class="n">۴</span>موارد نیازمند اصلاح</h2>
+<div class="lines"><div></div><div></div><div></div><div></div><div></div></div>
+
+<div class="sign"><div>آزمونگر: نام، امضا و تاریخ</div><div>ناظر: نام، امضا و تاریخ</div><div>مالک / بهره‌بردار</div></div>
+
+<p class="foot">این چک‌لیست راهنمای عملی است و جایگزین متن رسمی IEC 60364-6، مبحث ۱۳ مقررات ملی ساختمان و مشخصات فنی پروژه نیست. تهیه: صابر خاک‌بیز · <span class="url">saber-khakbiz.github.io/Gilan-Electrical-Testing</span></p>
+</body>
+</html>

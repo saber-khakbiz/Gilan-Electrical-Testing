@@ -9,5 +9,5 @@ operator-entry.png, submit-signature.png, go-to-date-calendar.png,
 statistics.png, admin-dashboard.png, audit-log.png, backup-and-restore.png,
 measurement-points.png, settings.png, startup-clock-check.png, splash.png
 
-No code change is needed: each image appears on the site as soon as its file
-exists, and a missing file is simply left out.
+Then, in software/products.js, move each uploaded file's line from
+"screenshotsPending" into "screenshots" (the captions are already written).

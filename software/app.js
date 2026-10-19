@@ -38,6 +38,9 @@
   var TG = str(CFG.telegram).replace(/^@/, "") || "saberk14z";
   function t(k) { return typeof UI[k] === "string" ? UI[k] : ""; }
   var TONES = ["locked", "open", "done", "warn", "bad"];
+  var ALTS = (Array.isArray(CFG.altMessengers) ? CFG.altMessengers : []).filter(function (m) {
+    return m && str(m.name) && /^https:\/\//.test(str(m.url));
+  });
   function tone(v) { return TONES.indexOf(v) >= 0 ? v : "locked"; }
 
   // ---------- normalize data (skip broken entries instead of failing) ----------
@@ -145,6 +148,10 @@
       (p.summary ? '<p class="p-summary">' + esc(p.summary) + "</p>" : "") +
       (chips ? '<div class="chips">' + chips + "</div>" : "") +
       (eds.length ? '<div class="cta-row">' + eds.map(function (e, i) { return orderBtn(p, e, i === 0); }).join("") + "</div>" : "") +
+      (ALTS.length && eds.length ? '<p class="alt-order">' + esc(t("altOrder")) + " " + ALTS.map(function (m) {
+        return '<a href="' + esc(str(m.url)) + '" target="_blank" rel="noopener" data-alt-order="' + esc(p.id) + '" data-name="' +
+          esc(str(m.name)) + '">' + esc(str(m.name)) + "</a>";
+      }).join(" \u00B7 ") + "</p>" : "") +
       '<p class="hint" data-hint="' + esc(p.id) + '" role="status" hidden>' + esc(t("sentHint")) + "</p>" +
       "</div>" +
       '<div class="p-hero-media">' + heroShot + "</div>" +
@@ -311,6 +318,17 @@
     if (e.target.closest("#lbNext")) { step(1); return; }
     if (e.target.closest("[data-lb-close]") || e.target === lb) { closeLb(); return; }
 
+    var altLink = e.target.closest("[data-alt-order]");
+    if (altLink) {
+      var ap = byId[altLink.getAttribute("data-alt-order")];
+      var main = ap.editions.filter(function (x) { return x.highlight; })[0] || ap.editions[0] || null;
+      // Other messengers have no draft-text link, so the request is copied first.
+      copyText(orderText(ap, main));
+      var ah = document.querySelector('[data-hint="' + ap.id + '"]');
+      if (ah) { ah.textContent = fill(t("altHint"), { name: altLink.getAttribute("data-name") }); ah.hidden = false; }
+      return;
+    }
+
     var order = e.target.closest("[data-order]");
     if (order) {
       var p = byId[order.getAttribute("data-order")];
@@ -319,7 +337,7 @@
       // Copy as a backup in case the Telegram client ignores the draft text.
       copyText(orderText(p, ed));
       var hint = document.querySelector('[data-hint="' + p.id + '"]');
-      if (hint) hint.hidden = false;
+      if (hint) { hint.textContent = t("sentHint"); hint.hidden = false; }
     }
   });
 

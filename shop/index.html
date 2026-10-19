@@ -6,6 +6,18 @@
     <title>محصولات سخت‌افزاری | صابر خاک‌بیز</title>
     <meta name="description" content="ابزارهای دست‌ساز و امتحان‌شده برای تست و تحویل تاسیسات برقی؛ سرخط‌یاب صوتی، پراب مغناطیسی و ابزارهای کمکی. ثبت سفارش در تلگرام." />
     <meta name="theme-color" content="#0a1128" />
+    <link rel="canonical" href="https://saber-khakbiz.github.io/Gilan-Electrical-Testing/shop/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:site_name" content="صابر خاک‌بیز" />
+    <meta property="og:title" content="ابزارهای تست دست‌ساز | صابر خاک‌بیز" />
+    <meta property="og:description" content="سرخط‌یاب صوتی، پراب مغناطیسی و ابزارهای کوچکی که برای کار تست و تحویل ساخته‌ام. سفارش در تلگرام." />
+    <meta property="og:url" content="https://saber-khakbiz.github.io/Gilan-Electrical-Testing/shop/" />
+    <meta property="og:image" content="https://saber-khakbiz.github.io/Gilan-Electrical-Testing/images/og/og-hardware.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ابزارهای تست دست‌ساز" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/png" href="../images/favicon.png" />
     <style>
 /* Shop section of the main site. Same navy/amber palette and self-hosted
@@ -254,6 +266,12 @@ dialog.pd::backdrop { background: rgba(2, 6, 18, .72); }
 }
 .send:hover { background: var(--accent-glow); }
 .send .ico { width: 22px; height: 22px; }
+.send-alts { display: grid; gap: 8px; }
+.send-alt {
+    display: flex; align-items: center; justify-content: center; text-decoration: none; font-weight: 800; font-size: 15px;
+    color: var(--accent); border: 1px solid rgba(245, 158, 11, .5); border-radius: 10px; padding: 10px 16px;
+}
+.send-alt:hover { background: var(--accent); color: var(--accent-ink); }
 .copy-order { background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 10px; padding: 9px 16px; font-weight: 700; cursor: pointer; }
 .copy-order:hover { border-color: var(--accent); }
 .hint { font-size: 13.5px; color: var(--ok); background: rgba(110, 231, 183, .08); border: 1px solid rgba(110, 231, 183, .2); border-radius: 8px; padding: 8px 12px; }
@@ -366,14 +384,14 @@ details.preview pre {
     <header class="topbar">
         <div class="wrap">
             <a class="brand" href="../products/index.html">
-                <img src="../images/logo.png" alt="" width="44" height="44" onerror="this.hidden=true">
+                <img src="../images/logo.webp" alt="" width="44" height="44" onerror="this.hidden=true">
                 <span class="brand-txt">
                     <span class="brand-name">صابر خاک‌بیز</span>
                     <span class="brand-sub" id="brandSub">محصولات سخت‌افزاری</span>
                 </span>
             </a>
             <div class="top-actions">
-                <a class="tbtn tbtn-back" href="../index.html">
+                <a class="tbtn tbtn-back" href="../index.html" aria-label="بازگشت به سایت اصلی">
                     <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
                     <span class="tbtn-label" id="backText">بازگشت به سایت اصلی</span>
                 </a>
@@ -454,6 +472,7 @@ details.preview pre {
                         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 4.5L2.9 11.7c-.9.4-.9 1.6.1 1.9l4.6 1.4 1.8 5.6c.3.8 1.3 1 1.9.4l2.6-2.5 4.8 3.5c.7.5 1.7.1 1.9-.7l3.2-15.2c.2-1-.8-1.9-1.8-1.6zM9.6 14.3l8.6-6.9-6.9 8.3-.3 3.1-1.4-4.5z" fill="currentColor"/></svg>
                         <span id="sendText"></span>
                     </a>
+                    <div class="send-alts" id="sendAlts" hidden></div>
                     <p class="hint" id="sentHint" role="status" hidden></p>
                     <button type="button" class="copy-order" id="copyOrder"></button>
                     <details class="preview" id="previewBox">

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 447 306" width="447" height="306">
+  <title>Network cable tester and protocol analyzer (illustration)</title>
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f3a52"/><stop offset="1" stop-color="#151c2c"/></linearGradient>
+  </defs>
+  <rect width="447" height="306" fill="#ffffff"/>
+  <ellipse cx="200" cy="278" rx="170" ry="10" fill="#0a1128" opacity=".12"/>
+  <!-- rugged tablet with protocol view -->
+  <rect x="36" y="40" width="250" height="200" rx="20" fill="#f59e0b"/>
+  <rect x="46" y="50" width="230" height="180" rx="12" fill="url(#body)"/>
+  <rect x="58" y="62" width="206" height="156" rx="6" fill="#0b1530"/>
+  <rect x="58" y="62" width="206" height="18" rx="6" fill="#16213f"/>
+  <circle cx="68" cy="71" r="3" fill="#22c55e"/>
+  <text x="76" y="75" font-family="Consolas, monospace" font-size="9" fill="#cbd5e1">IEC 104  TCP 2404</text>
+  <g font-family="Consolas, monospace" font-size="9">
+    <text x="66" y="96" fill="#f59e0b">I  68 0E 02 00 02 00 0D 01</text>
+    <text x="66" y="110" fill="#cbd5e1">   03 00 01 00 01 40 00 ..</text>
+    <text x="66" y="126" fill="#22c55e">S  68 04 01 00 04 00</text>
+    <text x="66" y="142" fill="#f59e0b">I  68 0E 04 00 02 00 01 01</text>
+    <text x="66" y="156" fill="#cbd5e1">   03 00 01 00 0A 00 00 01</text>
+    <text x="66" y="172" fill="#60a5fa">U  68 04 43 00 00 00</text>
+    <text x="66" y="186" fill="#60a5fa">U  68 04 83 00 00 00</text>
+  </g>
+  <rect x="66" y="198" width="190" height="10" rx="5" fill="#16213f"/>
+  <rect x="66" y="198" width="120" height="10" rx="5" fill="#22c55e" opacity=".7"/>
+  <!-- cable tester unit -->
+  <rect x="306" y="98" width="100" height="160" rx="16" fill="#f59e0b"/>
+  <rect x="314" y="106" width="84" height="144" rx="10" fill="url(#body)"/>
+  <g>
+    <circle cx="332" cy="128" r="5" fill="#22c55e"/><circle cx="348" cy="128" r="5" fill="#22c55e"/><circle cx="364" cy="128" r="5" fill="#22c55e"/><circle cx="380" cy="128" r="5" fill="#22c55e"/>
+    <circle cx="332" cy="146" r="5" fill="#22c55e"/><circle cx="348" cy="146" r="5" fill="#22c55e"/><circle cx="364" cy="146" r="5" fill="#3b475c"/><circle cx="380" cy="146" r="5" fill="#22c55e"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle"><text x="332" y="166">1</text><text x="348" y="166">2</text><text x="364" y="166">3</text><text x="380" y="166">4</text></g>
+  <rect x="338" y="188" width="36" height="28" rx="4" fill="#0b1530" stroke="#94a3b8" stroke-width="2"/>
+  <rect x="344" y="194" width="24" height="8" fill="#94a3b8"/>
+  <!-- patch cable -->
+  <path d="M356 250 C 356 290, 300 292, 262 262" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+  <rect x="246" y="250" width="22" height="18" rx="3" fill="#cbd5e1" transform="rotate(30 257 259)"/>
+</svg>

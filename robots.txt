@@ -1,0 +1,7 @@
+# Search engines only read robots.txt at the root of a domain. On
+# saber-khakbiz.github.io this file is not used; it takes effect once the
+# site has its own domain. Submit sitemap.xml in Google Search Console.
+User-agent: *
+Allow: /
+
+Sitemap: https://saber-khakbiz.github.io/Gilan-Electrical-Testing/sitemap.xml
