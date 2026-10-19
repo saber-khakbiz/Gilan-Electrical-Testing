@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>فروشگاه ابزار تست | صابر خاک‌بیز</title>
+    <title>محصولات سخت‌افزاری | صابر خاک‌بیز</title>
     <meta name="description" content="ابزارهای دست‌ساز و امتحان‌شده برای تست و تحویل تاسیسات برقی؛ سرخط‌یاب صوتی، پراب مغناطیسی و ابزارهای کمکی. ثبت سفارش در تلگرام." />
     <meta name="theme-color" content="#0a1128" />
     <link rel="icon" type="image/png" href="../images/favicon.png" />
@@ -275,6 +275,15 @@ details.preview pre {
 .foot { border-top: 1px solid var(--line); }
 .foot .wrap { padding-block: 20px calc(28px + env(safe-area-inset-bottom, 0px)); font-size: 13px; color: var(--muted); }
 
+/* ---------- products sub-navigation (shared look with software/) ---------- */
+.subnav { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; margin-bottom: -8px; }
+.subnav-up { font-size: 13px; font-weight: 700; color: var(--muted); text-decoration: none; }
+.subnav-up:hover { color: var(--accent); }
+.seg { display: inline-flex; padding: 3px; gap: 3px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-2); }
+.seg a { font-size: 14px; font-weight: 800; text-decoration: none; color: var(--muted); padding: 5px 16px; border-radius: 7px; }
+.seg a:hover { color: var(--ink); }
+.seg a[aria-current="page"] { background: var(--accent); color: var(--accent-ink); }
+
 /* ---------- category filter ---------- */
 /* Chips wrap instead of scrolling sideways, so no category is hidden off-screen. */
 .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: -12px; }
@@ -356,11 +365,11 @@ details.preview pre {
 <body>
     <header class="topbar">
         <div class="wrap">
-            <a class="brand" href="#">
+            <a class="brand" href="../products/index.html">
                 <img src="../images/logo.png" alt="" width="44" height="44" onerror="this.hidden=true">
                 <span class="brand-txt">
                     <span class="brand-name">صابر خاک‌بیز</span>
-                    <span class="brand-sub" id="brandSub">فروشگاه ابزار تست</span>
+                    <span class="brand-sub" id="brandSub">محصولات سخت‌افزاری</span>
                 </span>
             </a>
             <div class="top-actions">
@@ -378,6 +387,14 @@ details.preview pre {
     </header>
 
     <main class="wrap" id="shopMain">
+        <nav class="subnav" aria-label="بخش‌های محصولات">
+            <a class="subnav-up" href="../products/index.html">همه‌ی محصولات</a>
+            <span class="seg">
+                <a href="./index.html" aria-current="page">سخت‌افزار</a>
+                <a href="../software/index.html">نرم‌افزار</a>
+            </span>
+        </nav>
+
         <section class="check" id="check" hidden aria-live="polite"></section>
 
         <section class="hero">
